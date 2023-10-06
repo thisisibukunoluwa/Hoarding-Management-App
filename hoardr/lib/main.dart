@@ -9,11 +9,12 @@ class HoardrApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(),
-      home: ,
       
     );
   }
 }
+
+

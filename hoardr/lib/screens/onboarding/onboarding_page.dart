@@ -21,11 +21,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   }
 
   int _currentPage = 0;
-  List colors = const [
-    Color(0xffDAD3C8),
-    Color(0xffFFE5DE),
-    Color(0xffDCF6E6),
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +29,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     double height = SizeConfig.screenH!;
 
     return Scaffold(
-      backgroundColor: colors[_currentPage],
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Column(
           children: [
