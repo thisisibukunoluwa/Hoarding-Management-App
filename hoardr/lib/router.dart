@@ -19,9 +19,10 @@ final appRouter = GoRouter(
         return 
       },
       routes: [
-        AppRoute(ScreenPaths.profile, (s) => )
-        AppRoute(ScreenPaths.profile, (s) => )
-        AppRoute(ScreenPaths.profile, (s) => )
+        AppRoute(ScreenPaths.profile, (s) => ),
+        AppRoute(ScreenPaths.message, (s) => ),
+        AppRoute(ScreenPaths.add, (s) => ),
+        AppRoute(ScreenPaths.favorite, (s) => )
     ])
 ]);
 
