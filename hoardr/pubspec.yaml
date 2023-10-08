@@ -52,7 +52,9 @@ flutter_native_splash:
   ios: true
   web: false 
 
-color: "FFCC00"
+  color: "#000000"
+  image: assets/PageIcons/Hoardr.png
+  
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
@@ -78,7 +80,9 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - asset: assets/fonts/MyFlutterApp.ttf
+    - family: MyFlutterApp 
+      fonts: 
+        - asset: assets/fonts/MyFlutterApp.ttf
   
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

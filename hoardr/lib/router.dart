@@ -2,11 +2,17 @@ import 'package:go_router/go_router.dart';
 import 'package:hoardr/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:hoardr/screens/additems/add_items_page.dart';
+import 'package:hoardr/screens/favorites/favorites_page.dart';
+import 'package:hoardr/screens/hoardr_scaffold.dart';
+import 'package:hoardr/screens/messages/messages_page.dart';
+import 'package:hoardr/screens/onboarding/onboarding_page.dart';
+import 'package:hoardr/screens/userprofile/profile_page.dart';
+
 class ScreenPaths {
-  static String splash = '/';
+  static String home = '/';
   static String onboarding = '/onboarding';
-  static String home = '/home';
-  static String favorite = 'favorite';
+  static String favorite = '/favorite';
   static String add = '/add';
   static String message = '/message';
   static String profile = '/profile';
@@ -15,17 +21,17 @@ class ScreenPaths {
 final appRouter = GoRouter(
   routes: [
     ShellRoute(
-      builder: (context,router,navigator) {
-        return 
+      builder: (context,state,child) {
+        return HoardrScaffold(child: child);
       },
       routes: [
-        AppRoute(ScreenPaths.profile, (s) => ),
-        AppRoute(ScreenPaths.message, (s) => ),
-        AppRoute(ScreenPaths.add, (s) => ),
-        AppRoute(ScreenPaths.favorite, (s) => )
+        AppRoute(ScreenPaths.onboarding, (s) => OnboardingScreen()),
+        AppRoute(ScreenPaths.favorite, (s) => FavoritesPage()),
+        AppRoute(ScreenPaths.add, (s) => AddItemsPage()),
+        AppRoute(ScreenPaths.message, (s) => MessagesPage()),
+        AppRoute(ScreenPaths.profile, (s) => ProfilePage()),
     ])
 ]);
-
 
 
 
@@ -46,4 +52,5 @@ class AppRoute extends GoRoute {
   );
   final bool useFade;
 }
+
 
