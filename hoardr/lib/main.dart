@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hoardr/router.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'theme/theme.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -17,7 +18,7 @@ class HoardrApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(),
+      theme: AppTheme.light,
       routeInformationParser: appRouter.routeInformationParser,
       routeInformationProvider: appRouter.routeInformationProvider,
       routerDelegate: appRouter.routerDelegate,

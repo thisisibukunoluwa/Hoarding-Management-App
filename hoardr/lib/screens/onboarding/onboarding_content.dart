@@ -14,20 +14,20 @@ class OnboardingContents {
 
 List<OnboardingContents> contents = [
   OnboardingContents(
-    title: "Track Your work and get the result",
-    image: Assets.products.box.toString(),
-    desc: "Remember to keep track of your professional accomplishments.",
+    title: "You clutter your space, we make it even better ",
+    image: Assets.products.box.path,
+    desc: "Your place doesn't need to look like a Nigerian cemetery before making it look livable, connect with the right audience today.",
   ),
   OnboardingContents(
-    title: "Stay organized with team",
-    image: Assets.pageIcons.people.toString(),
+    title: "Exchange sentiments for better.",
+    image: Assets.pageIcons.people.path,
     desc:
-        "But understanding the contributions our colleagues make to our teams and companies.",
+        "Let us help you meet your needs, You can exchange that item you hold sentiments towards for a even better item.",
   ),
   OnboardingContents(
-    title: "Get notified when work happens",
-    image: Assets.icons.bid.toString(),
+    title: "Place a bid on your old items",
+    image: Assets.icons.bid.path,
     desc:
-        "Take control of notifications, collaborate live or on your own time.",
+        "That precious item can give you an even better earning than you have imagined, get onboard today and start earning.",
   ),
 ];

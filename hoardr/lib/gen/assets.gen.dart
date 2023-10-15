@@ -12,28 +12,28 @@ import 'package:flutter/widgets.dart';
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
-  /// File path: assets/Icons/Bid.jpg
-  AssetGenImage get bid => const AssetGenImage('assets/Icons/Bid.jpg');
+  /// File path: assets/icons/Bid.jpg
+  AssetGenImage get bid => const AssetGenImage('assets/icons/Bid.jpg');
 
-  /// File path: assets/Icons/Clothes.jpg
-  AssetGenImage get clothes => const AssetGenImage('assets/Icons/Clothes.jpg');
+  /// File path: assets/icons/Clothes.jpg
+  AssetGenImage get clothes => const AssetGenImage('assets/icons/Clothes.jpg');
 
-  /// File path: assets/Icons/Cloud.jpg
-  AssetGenImage get cloud => const AssetGenImage('assets/Icons/Cloud.jpg');
+  /// File path: assets/icons/Cloud.jpg
+  AssetGenImage get cloud => const AssetGenImage('assets/icons/Cloud.jpg');
 
-  /// File path: assets/Icons/Electronics.jpg
+  /// File path: assets/icons/Electronics.jpg
   AssetGenImage get electronics =>
-      const AssetGenImage('assets/Icons/Electronics.jpg');
+      const AssetGenImage('assets/icons/Electronics.jpg');
 
-  /// File path: assets/Icons/Email.jpg
-  AssetGenImage get email => const AssetGenImage('assets/Icons/Email.jpg');
+  /// File path: assets/icons/Email.jpg
+  AssetGenImage get email => const AssetGenImage('assets/icons/Email.jpg');
 
-  /// File path: assets/Icons/Jewelry.jpg
-  AssetGenImage get jewelry => const AssetGenImage('assets/Icons/Jewelry.jpg');
+  /// File path: assets/icons/Jewelry.jpg
+  AssetGenImage get jewelry => const AssetGenImage('assets/icons/Jewelry.jpg');
 
-  /// File path: assets/Icons/Machinery.jpg
+  /// File path: assets/icons/Machinery.jpg
   AssetGenImage get machinery =>
-      const AssetGenImage('assets/Icons/Machinery.jpg');
+      const AssetGenImage('assets/icons/Machinery.jpg');
 
   /// List of all assets
   List<AssetGenImage> get values =>
@@ -43,29 +43,29 @@ class $AssetsIconsGen {
 class $AssetsPageIconsGen {
   const $AssetsPageIconsGen();
 
-  /// File path: assets/PageIcons/Account Create Success.jpg
+  /// File path: assets/pageIcons/Account Create Success.jpg
   AssetGenImage get accountCreateSuccess =>
-      const AssetGenImage('assets/PageIcons/Account Create Success.jpg');
+      const AssetGenImage('assets/pageIcons/Account Create Success.jpg');
 
-  /// File path: assets/PageIcons/Hoardr.jpg
+  /// File path: assets/pageIcons/Hoardr.png
   AssetGenImage get hoardr =>
-      const AssetGenImage('assets/PageIcons/Hoardr.jpg');
+      const AssetGenImage('assets/pageIcons/Hoardr.png');
 
-  /// File path: assets/PageIcons/Password.jpg
+  /// File path: assets/pageIcons/Password.jpg
   AssetGenImage get password =>
-      const AssetGenImage('assets/PageIcons/Password.jpg');
+      const AssetGenImage('assets/pageIcons/Password.jpg');
 
-  /// File path: assets/PageIcons/People.jpg
+  /// File path: assets/pageIcons/People.jpg
   AssetGenImage get people =>
-      const AssetGenImage('assets/PageIcons/People.jpg');
+      const AssetGenImage('assets/pageIcons/People.jpg');
 
-  /// File path: assets/PageIcons/Test Success Sent.jpg
+  /// File path: assets/pageIcons/Test Success Sent.jpg
   AssetGenImage get testSuccessSent =>
-      const AssetGenImage('assets/PageIcons/Test Success Sent.jpg');
+      const AssetGenImage('assets/pageIcons/Test Success Sent.jpg');
 
-  /// File path: assets/PageIcons/paper-plane 1.jpg
+  /// File path: assets/pageIcons/paper-plane 1.jpg
   AssetGenImage get paperPlane1 =>
-      const AssetGenImage('assets/PageIcons/paper-plane 1.jpg');
+      const AssetGenImage('assets/pageIcons/paper-plane 1.jpg');
 
   /// List of all assets
   List<AssetGenImage> get values => [
@@ -81,45 +81,45 @@ class $AssetsPageIconsGen {
 class $AssetsProductsGen {
   const $AssetsProductsGen();
 
-  /// File path: assets/Products/Bag.jpg
-  AssetGenImage get bag => const AssetGenImage('assets/Products/Bag.jpg');
+  /// File path: assets/products/Bag.jpg
+  AssetGenImage get bag => const AssetGenImage('assets/products/Bag.jpg');
 
-  /// File path: assets/Products/Box.jpg
-  AssetGenImage get box => const AssetGenImage('assets/Products/Box.jpg');
+  /// File path: assets/products/Box.jpg
+  AssetGenImage get box => const AssetGenImage('assets/products/Box.jpg');
 
-  /// File path: assets/Products/Driller.jpg
+  /// File path: assets/products/Driller.jpg
   AssetGenImage get driller =>
-      const AssetGenImage('assets/Products/Driller.jpg');
+      const AssetGenImage('assets/products/Driller.jpg');
 
-  /// File path: assets/Products/EthiopianJewelry.jpg
+  /// File path: assets/products/EthiopianJewelry.jpg
   AssetGenImage get ethiopianJewelry =>
-      const AssetGenImage('assets/Products/EthiopianJewelry.jpg');
+      const AssetGenImage('assets/products/EthiopianJewelry.jpg');
 
-  /// File path: assets/Products/Gas.jpg
-  AssetGenImage get gas => const AssetGenImage('assets/Products/Gas.jpg');
+  /// File path: assets/products/Gas.jpg
+  AssetGenImage get gas => const AssetGenImage('assets/products/Gas.jpg');
 
-  /// File path: assets/Products/GermanCouch.jpg
+  /// File path: assets/products/GermanCouch.jpg
   AssetGenImage get germanCouch =>
-      const AssetGenImage('assets/Products/GermanCouch.jpg');
+      const AssetGenImage('assets/products/GermanCouch.jpg');
 
-  /// File path: assets/Products/HandCushion.jpg
+  /// File path: assets/products/HandCushion.jpg
   AssetGenImage get handCushion =>
-      const AssetGenImage('assets/Products/HandCushion.jpg');
+      const AssetGenImage('assets/products/HandCushion.jpg');
 
-  /// File path: assets/Products/PieceOfCloth.jpg
+  /// File path: assets/products/PieceOfCloth.jpg
   AssetGenImage get pieceOfCloth =>
-      const AssetGenImage('assets/Products/PieceOfCloth.jpg');
+      const AssetGenImage('assets/products/PieceOfCloth.jpg');
 
-  /// File path: assets/Products/PiggyCouch.jpg
+  /// File path: assets/products/PiggyCouch.jpg
   AssetGenImage get piggyCouch =>
-      const AssetGenImage('assets/Products/PiggyCouch.jpg');
+      const AssetGenImage('assets/products/PiggyCouch.jpg');
 
-  /// File path: assets/Products/Sack.jpg
-  AssetGenImage get sack => const AssetGenImage('assets/Products/Sack.jpg');
+  /// File path: assets/products/Sack.jpg
+  AssetGenImage get sack => const AssetGenImage('assets/products/Sack.jpg');
 
-  /// File path: assets/Products/WallSwitch.jpg
+  /// File path: assets/products/WallSwitch.jpg
   AssetGenImage get wallSwitch =>
-      const AssetGenImage('assets/Products/WallSwitch.jpg');
+      const AssetGenImage('assets/products/WallSwitch.jpg');
 
   /// List of all assets
   List<AssetGenImage> get values => [

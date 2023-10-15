@@ -17,12 +17,14 @@ abstract class AppColors {
   static const Color black = Color(0xFF000000);
   static const Color yellow = Color(0xFFFF6D248);
   static const Color grey = Color(0xFFF9F9F9);
+  static const Color textColor1 = Color(0xFFFF4B4B58);
+  static const Color textColor2 = Color(0xFFFFA5A5B3);
+
 
 
   static const Color oliveGreen = Color(0xFFFF7C772F);
   static const Color midnightBlue = Color(0xFFFF3D44A1);
   static const Color coralPink = Color(0xFFFFED7693);
-
 
   static const Color redDark = Color(0xFFFF15151C);
   static const Color mediumDark = Color(0xFF363649);
@@ -32,7 +34,7 @@ abstract class AppColors {
   static const Color demiLightDark2 = Color(0xFFFF717197);
   static const Color demiLightDark3 = Color(0xFFFF9999B2);
   static const Color demiLightDark4 = Color(0xFFFFBBBBCC);
- 
+
 
   static const Color cleared = Color(0xFFFF0066FF);
   static const Color rejected = Color(0xFFFF1010);
@@ -41,8 +43,4 @@ abstract class AppColors {
   static const Color inProgress = Color(0xFFFF1010);
 
   static const Color transparent = Color(0x00000000);
-
-
 }
-
-

@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 abstract class AppTheme {
   static ThemeData light = _themeData(_colorScheme);
+  
   static ThemeData dark = _themeData(_darkColorScheme);
 
   static _themeData(ColorScheme colorScheme) => ThemeData(
@@ -35,18 +36,33 @@ abstract class AppTheme {
     surfaceTint: AppColors.surfaceTintDark,
   );
 
-  static final TextTheme _spaceGrotesk = GoogleFonts.spaceGroteskTextTheme();
-  static final TextTheme _openSans = GoogleFonts.openSansTextTheme();
+  static final TextTheme _mulish = GoogleFonts.mulishTextTheme();
 
-  static TextTheme _textTheme(ColorScheme colorScheme) => _openSans
-      .copyWith(
-        titleLarge: _spaceGrotesk.titleLarge?.copyWith(
+  static TextTheme _textTheme(ColorScheme colorScheme) => TextTheme(
+        headlineMedium: TextStyle(
+          fontSize: 26,
           fontWeight: FontWeight.bold,
           color: colorScheme.onBackground,
-          fontSize: 20,
         ),
-      )
-      .apply(bodyColor: colorScheme.onBackground);
+        titleLarge: TextStyle(
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+          color: colorScheme.onBackground,
+        ),
+        bodyLarge: TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.bold,
+          color: colorScheme.onBackground,
+        ),
+        bodyMedium: TextStyle(
+          color: colorScheme.onSurface,
+        ),
+        labelLarge: TextStyle(
+          fontSize: 14,
+          fontWeight: FontWeight.bold,
+          color: colorScheme.onPrimary,
+        ),
+      );
 
   static AppBarTheme _appBarTheme(ColorScheme colorScheme) => AppBarTheme(
         color: colorScheme.background,

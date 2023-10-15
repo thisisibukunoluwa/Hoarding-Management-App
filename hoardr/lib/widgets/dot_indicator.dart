@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:hoardr/theme/colors.dart';
 
-AnimatedContainer buildDots({int? index, int? currentPage}) {
+buildDots({int? index, int? currentPage}) {
   return AnimatedContainer(
-    duration: const Duration(milliseconds: 200),
-    decoration: const BoxDecoration(
+    duration:  Duration(milliseconds: 200),
+    decoration:  BoxDecoration(
       borderRadius: BorderRadius.all(
         Radius.circular(50),
       ),
-      color: Color(0xFF000000),
+      color:  (currentPage == index ) ? AppColors.primary : AppColors.demiLightDark2
     ),
     margin: const EdgeInsets.only(right: 5),
     height: 10,
     curve: Curves.easeIn,
-    width: currentPage == index ? 20 : 10,
+    width: 10 
   );
 }
+
