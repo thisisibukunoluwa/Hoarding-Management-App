@@ -3,6 +3,8 @@ import 'package:hoardr/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:hoardr/screens/additems/add_items_page.dart';
+import 'package:hoardr/screens/auth/forgot_password_page.dart';
+import 'package:hoardr/screens/auth/login_page.dart';
 import 'package:hoardr/screens/favorites/favorites_page.dart';
 import 'package:hoardr/screens/hoardr_scaffold.dart';
 import 'package:hoardr/screens/main/home_page.dart';
@@ -13,7 +15,8 @@ import 'package:hoardr/screens/userprofile/profile_page.dart';
 class ScreenPaths {
   static String home = '/';
   static String onboarding = '/onboarding';
-  static String signIn = '/signIn';
+  static String login = '/login';
+  static String forgotPassword = '/forgot-password';
   static String favorite = '/favorite';
   static String add = '/add';
   static String message = '/message';
@@ -28,6 +31,10 @@ final appRouter = GoRouter(
     debugLogDiagnostics: true,
     routes: [
       AppRoute(ScreenPaths.onboarding, (s) => OnboardingScreen()),
+       AppRoute(ScreenPaths.forgotPassword, (s) => ForgotPassword()),
+      AppRoute(
+        ScreenPaths.login, (s) => LoginPage(onSubmit: (String srg) {},),
+      ),
       ShellRoute(
           builder: (context, state, child) {
             return HoardrScaffold(child: child);

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hoardr/router.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'theme/theme.dart';
+import 'package:flutter/cupertino.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();

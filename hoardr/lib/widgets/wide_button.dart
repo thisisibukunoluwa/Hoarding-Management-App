@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hoardr/theme/colors.dart';
+import 'package:hoardr/utils/size_config.dart';
 
 class WideButton extends StatelessWidget {
   final VoidCallback onPressed;
@@ -16,11 +17,15 @@ class WideButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     SizeConfig().init(context);
+    double width = SizeConfig.screenW!;
+    double height = SizeConfig.screenH!;
+    
     return Container(
-      width: double.infinity,
+      width: width * 0.90,
       child: ElevatedButton(
         onPressed: onPressed,
-        child: Text(buttonText),
+        child: Text(buttonText, style: TextStyle(letterSpacing: 1),),
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.primary,
           shape: RoundedRectangleBorder(

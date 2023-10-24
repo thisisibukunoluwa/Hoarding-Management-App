@@ -1,10 +1,12 @@
+import 'package:hoardr/theme/border_radius.dart';
+
 import 'colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 abstract class AppTheme {
   static ThemeData light = _themeData(_colorScheme);
-  
+
   static ThemeData dark = _themeData(_darkColorScheme);
 
   static _themeData(ColorScheme colorScheme) => ThemeData(
@@ -36,33 +38,32 @@ abstract class AppTheme {
     surfaceTint: AppColors.surfaceTintDark,
   );
 
-  static final TextTheme _mulish = GoogleFonts.mulishTextTheme();
+  static TextTheme _textTheme(ColorScheme colorScheme) => GoogleFonts.mulishTextTheme().copyWith(
+     headlineMedium: TextStyle(
+      fontSize: 26,
+      fontWeight: FontWeight.bold,
+      color: colorScheme.onBackground,
+    ),
+    titleLarge: TextStyle(
+      fontSize: 20,
+      fontWeight: FontWeight.bold,
+      color: colorScheme.onBackground,
+    ),
+    bodyLarge: TextStyle(
+      fontSize: 16,
+      fontWeight: FontWeight.bold,
+      color: colorScheme.onBackground,
+    ),
+    bodyMedium: TextStyle(
+      color: colorScheme.onSurface,
+    ),
+    labelLarge: TextStyle(
+      fontSize: 14,
+      fontWeight: FontWeight.bold,
+      color: colorScheme.onPrimary,
+    ),
+  );
 
-  static TextTheme _textTheme(ColorScheme colorScheme) => TextTheme(
-        headlineMedium: TextStyle(
-          fontSize: 26,
-          fontWeight: FontWeight.bold,
-          color: colorScheme.onBackground,
-        ),
-        titleLarge: TextStyle(
-          fontSize: 20,
-          fontWeight: FontWeight.bold,
-          color: colorScheme.onBackground,
-        ),
-        bodyLarge: TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.bold,
-          color: colorScheme.onBackground,
-        ),
-        bodyMedium: TextStyle(
-          color: colorScheme.onSurface,
-        ),
-        labelLarge: TextStyle(
-          fontSize: 14,
-          fontWeight: FontWeight.bold,
-          color: colorScheme.onPrimary,
-        ),
-      );
 
   static AppBarTheme _appBarTheme(ColorScheme colorScheme) => AppBarTheme(
         color: colorScheme.background,
@@ -78,16 +79,16 @@ abstract class AppTheme {
   static InputDecorationTheme _inputDecorationTheme(ColorScheme colorScheme) =>
       InputDecorationTheme(
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(32),
-          borderSide: BorderSide(color: colorScheme.primary),
+          borderRadius: AppBorderRadius.c4,
+          borderSide: BorderSide(color: AppColors.borderEnabled),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(32),
-          borderSide: BorderSide(color: colorScheme.primary),
+          borderRadius: AppBorderRadius.c4,
+          borderSide: BorderSide(color: AppColors.borderFocused),
         ),
-        disabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(32),
-          borderSide: BorderSide(color: colorScheme.primary),
-        ),
+        // disabledBorder: OutlineInputBorder(
+        //   borderRadius: BorderRadius.circular(8.0),
+        //   borderSide: BorderSide(color: AppColors.borderInactive),
+        // ),
       );
 }

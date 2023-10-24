@@ -106,6 +106,10 @@ class $AssetsProductsGen {
   AssetGenImage get handCushion =>
       const AssetGenImage('assets/products/HandCushion.jpg');
 
+  /// File path: assets/products/PhoneCable.jpg
+  AssetGenImage get phoneCable =>
+      const AssetGenImage('assets/products/PhoneCable.jpg');
+
   /// File path: assets/products/PieceOfCloth.jpg
   AssetGenImage get pieceOfCloth =>
       const AssetGenImage('assets/products/PieceOfCloth.jpg');
@@ -114,8 +118,20 @@ class $AssetsProductsGen {
   AssetGenImage get piggyCouch =>
       const AssetGenImage('assets/products/PiggyCouch.jpg');
 
+  /// File path: assets/products/Plastic.jpg
+  AssetGenImage get plastic =>
+      const AssetGenImage('assets/products/Plastic.jpg');
+
+  /// File path: assets/products/RoyalGreenChair.jpg
+  AssetGenImage get royalGreenChair =>
+      const AssetGenImage('assets/products/RoyalGreenChair.jpg');
+
   /// File path: assets/products/Sack.jpg
   AssetGenImage get sack => const AssetGenImage('assets/products/Sack.jpg');
+
+  /// File path: assets/products/SoftManueBag.jpg
+  AssetGenImage get softManueBag =>
+      const AssetGenImage('assets/products/SoftManueBag.jpg');
 
   /// File path: assets/products/WallSwitch.jpg
   AssetGenImage get wallSwitch =>
@@ -130,9 +146,13 @@ class $AssetsProductsGen {
         gas,
         germanCouch,
         handCushion,
+        phoneCable,
         pieceOfCloth,
         piggyCouch,
+        plastic,
+        royalGreenChair,
         sack,
+        softManueBag,
         wallSwitch
       ];
 }

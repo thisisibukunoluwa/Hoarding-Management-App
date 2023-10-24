@@ -17,10 +17,13 @@ abstract class AppColors {
   static const Color black = Color(0xFF000000);
   static const Color yellow = Color(0xFFFF6D248);
   static const Color grey = Color(0xFFF9F9F9);
+  static const Color actionBlue = Color(0xFFFF3D68FF);
   static const Color textColor1 = Color(0xFFFF4B4B58);
   static const Color textColor2 = Color(0xFFFFA5A5B3);
 
-
+  static const Color borderEnabled = Color(0xFF818195);
+  static const Color borderFocused = Color(0xFF3D68FF);
+  static const Color borderError = Color(0xFFFF122E);
 
   static const Color oliveGreen = Color(0xFFFF7C772F);
   static const Color midnightBlue = Color(0xFFFF3D44A1);
@@ -34,7 +37,6 @@ abstract class AppColors {
   static const Color demiLightDark2 = Color(0xFFFF717197);
   static const Color demiLightDark3 = Color(0xFFFF9999B2);
   static const Color demiLightDark4 = Color(0xFFFFBBBBCC);
-
 
   static const Color cleared = Color(0xFFFF0066FF);
   static const Color rejected = Color(0xFFFF1010);
