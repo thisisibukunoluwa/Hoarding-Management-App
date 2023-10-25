@@ -2,18 +2,27 @@ import 'package:hoardr/gen/assets.gen.dart';
 import 'package:uuid/uuid.dart';
 
 enum ProductCategory {
-  Brandtags,
-  AntiqueChairs,
   Electronics,
-  Vehicles,
-  Gadgets,
-  Chairs,
   Jewelry,
   Clothes,
   Machinery,
+  Brandtags,
+  AntiqueChairs,
+  Vehicles,
+  Gadgets,
+  Chairs,
   Accessories,
   Furniture 
 }
+
+Map<ProductCategory, String> enumToImageMap = {
+  ProductCategory.values[0]: Assets.icons.electronics.path,
+  ProductCategory.values[1]:  Assets.icons.jewelry.path,
+  ProductCategory.values[2]:  Assets.icons.clothes.path,
+  ProductCategory.values[3]:  Assets.icons.machinery.path
+};
+
+
 
 class ProductModel {
   final String id;

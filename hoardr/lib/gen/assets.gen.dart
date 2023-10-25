@@ -12,21 +12,12 @@ import 'package:flutter/widgets.dart';
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
-  /// File path: assets/icons/Bid.jpg
-  AssetGenImage get bid => const AssetGenImage('assets/icons/Bid.jpg');
-
   /// File path: assets/icons/Clothes.jpg
   AssetGenImage get clothes => const AssetGenImage('assets/icons/Clothes.jpg');
-
-  /// File path: assets/icons/Cloud.jpg
-  AssetGenImage get cloud => const AssetGenImage('assets/icons/Cloud.jpg');
 
   /// File path: assets/icons/Electronics.jpg
   AssetGenImage get electronics =>
       const AssetGenImage('assets/icons/Electronics.jpg');
-
-  /// File path: assets/icons/Email.jpg
-  AssetGenImage get email => const AssetGenImage('assets/icons/Email.jpg');
 
   /// File path: assets/icons/Jewelry.jpg
   AssetGenImage get jewelry => const AssetGenImage('assets/icons/Jewelry.jpg');
@@ -36,8 +27,7 @@ class $AssetsIconsGen {
       const AssetGenImage('assets/icons/Machinery.jpg');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [bid, clothes, cloud, electronics, email, jewelry, machinery];
+  List<AssetGenImage> get values => [clothes, electronics, jewelry, machinery];
 }
 
 class $AssetsPageIconsGen {
@@ -46,6 +36,15 @@ class $AssetsPageIconsGen {
   /// File path: assets/pageIcons/Account Create Success.jpg
   AssetGenImage get accountCreateSuccess =>
       const AssetGenImage('assets/pageIcons/Account Create Success.jpg');
+
+  /// File path: assets/pageIcons/Bid.jpg
+  AssetGenImage get bid => const AssetGenImage('assets/pageIcons/Bid.jpg');
+
+  /// File path: assets/pageIcons/Cloud.jpg
+  AssetGenImage get cloud => const AssetGenImage('assets/pageIcons/Cloud.jpg');
+
+  /// File path: assets/pageIcons/Email.jpg
+  AssetGenImage get email => const AssetGenImage('assets/pageIcons/Email.jpg');
 
   /// File path: assets/pageIcons/Hoardr.png
   AssetGenImage get hoardr =>
@@ -70,12 +69,26 @@ class $AssetsPageIconsGen {
   /// List of all assets
   List<AssetGenImage> get values => [
         accountCreateSuccess,
+        bid,
+        cloud,
+        email,
         hoardr,
         password,
         people,
         testSuccessSent,
         paperPlane1
       ];
+}
+
+class $AssetsPlaceholderGen {
+  const $AssetsPlaceholderGen();
+
+  /// File path: assets/placeholder/placeholder.png
+  AssetGenImage get placeholder =>
+      const AssetGenImage('assets/placeholder/placeholder.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [placeholder];
 }
 
 class $AssetsProductsGen {
@@ -162,6 +175,7 @@ class Assets {
 
   static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsPageIconsGen pageIcons = $AssetsPageIconsGen();
+  static const $AssetsPlaceholderGen placeholder = $AssetsPlaceholderGen();
   static const $AssetsProductsGen products = $AssetsProductsGen();
 }
 
