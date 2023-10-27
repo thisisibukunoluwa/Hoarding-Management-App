@@ -4,16 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:hoardr/gen/assets.gen.dart';
 
 class CategoryChip extends StatelessWidget {
-
-  String image = Assets.placeholder.values[0].path;
   final String label;
   // final bool isSelected;
   final String imagePath;
 
   const CategoryChip(
       {super.key, required this.label,
+      required this.imagePath
       // required this.isSelected,
-      this.imagePath = 
       });
   @override
   Widget build(BuildContext context) {

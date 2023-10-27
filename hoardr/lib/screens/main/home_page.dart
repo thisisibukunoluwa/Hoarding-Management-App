@@ -13,7 +13,7 @@ class HomePage extends ConsumerWidget {
   HomePage({super.key});
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final allProducts = ref.watch(cardRepositoryProvider);
+    
     return SafeArea(
         child: Padding(
             padding: EdgeInsets.all(10.0),
@@ -22,7 +22,8 @@ class HomePage extends ConsumerWidget {
                 _AppBar(),
                 _SearchBar(),
                 _CategoryFilters(),
-                
+                _NewlyAddedItemsBanner(),
+                _ItemsList()
               ],
             )));
   }
@@ -30,6 +31,7 @@ class HomePage extends ConsumerWidget {
 
 class _AppBar extends StatelessWidget {
   const _AppBar({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -74,7 +76,6 @@ class _CategoryFilters extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     // final selectedCategory = ref.watch(selectedCategoryProvider);
-    final assets = Assets.icons.values;
     return SizedBox(
         height: 80,
         child: Column(
@@ -99,8 +100,8 @@ class _CategoryFilters extends ConsumerWidget {
                   //   int idx = entry.key;
                   //   ProductCategory category = entry.value;
                   //   return CategoryChip(
-                  //       label: category.capitalName(), 
-                  //       imagePath: assets[idx].path 
+                  //       label: category.capitalName(),
+                  //       imagePath: assets[idx].path
                   //     );
                   // }),
                   // map((category) => CategoryChip(
@@ -119,3 +120,115 @@ class _CategoryFilters extends ConsumerWidget {
   }
 }
 
+class _NewlyAddedItemsBanner extends StatelessWidget {
+  const _NewlyAddedItemsBanner({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(children: [
+        Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text("Categories"),
+            ViewAllButton(
+              onTap: () {
+                context.go('newly-added');
+              },
+            )
+          ]),
+    ]);
+  }
+}
+
+class _ItemsList extends ConsumerWidget {
+  const _ItemsList({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+      final allProducts = ref
+
+    return allProducts.when(
+      data: (data) => SizedBox(
+        height: size.height * 0.65,
+        child: GridView.builder(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                childAspectRatio: 0.75,
+                mainAxisSpacing: 10.0),
+            itemCount: 
+            itemBuilder: ((context, index) {
+              return Center(
+                child: CustomGiftCard(
+                  
+                ),
+              );
+            })),
+      ),
+            
+      error:(error, stackTrace) => Column(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Center(
+              child: Text('error $error'),
+            ),
+          ],
+      ),
+      loading: () =>  Column(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            Center(
+              child: CircularProgressIndicator(),
+            )
+          ],
+        ),
+    );
+  }
+}
+
+
+
+
+class CustomGiftCard extends StatelessWidget {
+  final ProductModel product;
+  final String publisher;
+  final String price;
+  final bool isFavorite;
+  final String name;
+
+  const CustomGiftCard({
+    required this.name,
+    required this.product,
+    required this.publisher,
+    required this.price,
+    this.isFavorite = false,
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+      Column(
+        children: [
+          Expanded(
+              child: Image.asset(
+            product.thumbnailPath,
+            fit: BoxFit.cover,
+          )),
+            SizedBox(
+              height: 10,
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Positioned(
+              //to do 
+                bottom: 10.0, right: 10.0, child: Icon(Icons.favorite))
+        ],
+      )
+    ]);
+  }
+}
