@@ -22,8 +22,10 @@ class HomePage extends ConsumerWidget {
                 _AppBar(),
                 _SearchBar(),
                 _CategoryFilters(),
-                _NewlyAddedItemsBanner(),
-                _ItemsList()
+                _SubHeading(title: "Newly Added Items",route:"newly-added"),
+                _ItemsList(),
+                 _SubHeading(title: "Favorite Items", route: "/favorites",),
+                 _FavoriteItems()
               ],
             )));
   }
@@ -80,37 +82,18 @@ class _CategoryFilters extends ConsumerWidget {
         height: 80,
         child: Column(
           children: [
-            Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text("Categories"),
-                  ViewAllButton(
-                    onTap: () {
-                      context.go('newly-added');
-                    },
-                  )
-                ]),
+           _SubHeading(title: "Newly Added Items", route: "newly-added"),
             ListView(
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
                 children: [
-
-                  // ...ProductCategory.values.asMap().entries.map((entry) {
-                  //   int idx = entry.key;
-                  //   ProductCategory category = entry.value;
-                  //   return CategoryChip(
-                  //       label: category.capitalName(),
-                  //       imagePath: assets[idx].path
-                  //     );
-                  // }),
-                  // map((category) => CategoryChip(
-                  //     // isSelected: selectedCategory == category,
-                  //     // onTap: () {
-                  //     //   ref
-                  //     //       .read(selectedCategoryProvider.notifier)
-                  //     //       .setSelectedCategory(category);
-                  //     // },
+                   ...ProductCategory.values.asMap().entries.map((entry) {
+                      ProductCategory category = entry.value;
+                     return CategoryChip(
+                         label: category.capitalName(),
+                         imagePath: enumToImageMap[category.name] ?? 'assets/placeholder/placeholder.png'
+                       );
+                   }),
                   const SizedBox(
                     height: 10,
                   )
@@ -120,8 +103,13 @@ class _CategoryFilters extends ConsumerWidget {
   }
 }
 
-class _NewlyAddedItemsBanner extends StatelessWidget {
-  const _NewlyAddedItemsBanner({super.key});
+class _SubHeading extends StatelessWidget {
+
+  final String title; 
+  final String route;
+
+  const _SubHeading({required this.title, required this.route, super.key});
+
 
   @override
   Widget build(BuildContext context) {
@@ -130,10 +118,10 @@ class _NewlyAddedItemsBanner extends StatelessWidget {
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text("Categories"),
+            Text(title),
             ViewAllButton(
               onTap: () {
-                context.go('newly-added');
+                context.go(route);
               },
             )
           ]),
@@ -189,16 +177,25 @@ class _ItemsList extends ConsumerWidget {
 }
 
 
+class _FavoriteItems extends StatelessWidget {
+  const _FavoriteItems({super.key});
 
 
-class CustomGiftCard extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    return  Placeholder();
+  }
+}
+
+class CustomProductCard extends StatelessWidget {
   final ProductModel product;
   final String publisher;
   final String price;
   final bool isFavorite;
   final String name;
 
-  const CustomGiftCard({
+  const CustomProductCard({
     required this.name,
     required this.product,
     required this.publisher,

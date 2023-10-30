@@ -1,10 +1,6 @@
 import 'package:hoardr/models/product_model.dart';
 import 'package:riverpod/riverpod.dart';
 
-final favoritesProductsProvider =
-    StateNotifierProvider<FavoriteProducts, List<ProductModel>>((ref) {
-  return FavoriteProducts();
-});
 
 class FavoriteProducts extends StateNotifier<List<ProductModel>> {
   FavoriteProducts() : super([]);
@@ -23,3 +19,7 @@ class FavoriteProducts extends StateNotifier<List<ProductModel>> {
     }
   }
 }
+
+final favoritesProductsProvider = StateNotifierProvider<FavoriteProducts, List<ProductModel>>((ref) {
+  return FavoriteProducts();
+});

@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:hoardr/screens/additems/add_items_page.dart';
 import 'package:hoardr/screens/auth/forgot_password_page.dart';
 import 'package:hoardr/screens/auth/login_page.dart';
+import 'package:hoardr/screens/categories/categories_page.dart';
 import 'package:hoardr/screens/favorites/favorites_page.dart';
 import 'package:hoardr/screens/hoardr_scaffold.dart';
 import 'package:hoardr/screens/main/home_page.dart';
@@ -18,11 +19,12 @@ class ScreenPaths {
   static String onboarding = '/onboarding';
   static String login = '/login';
   static String forgotPassword = '/forgot-password';
-  static String favorite = '/favorite';
-  static String newlyAdded = 'newly-added';
+  static String favorite = '/favorites';
+  static String newlyAdded = '/newly-added';
   static String add = '/add';
   static String message = '/message';
   static String profile = '/profile';
+  static String categories = '/categories';
 }
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
@@ -32,6 +34,7 @@ final appRouter = GoRouter(
     navigatorKey: _rootNavigatorKey,
     debugLogDiagnostics: true,
     routes: [
+      AppRoute(ScreenPaths.onboarding, (s) => CategoriesPage()),
       AppRoute(ScreenPaths.onboarding, (s) => OnboardingScreen()),
       AppRoute(ScreenPaths.forgotPassword, (s) => ForgotPassword()),
       AppRoute(
@@ -45,8 +48,9 @@ final appRouter = GoRouter(
             return HoardrScaffold(child: child);
           },
           routes: [
-            AppRoute(ScreenPaths.home, (s) => HomePage(),
-                routes: [AppRoute(ScreenPaths.newlyAdded, (s) => NewlyAddedItemsPage())]),
+            AppRoute(ScreenPaths.home, (s) => HomePage(), routes: [
+              AppRoute(ScreenPaths.newlyAdded, (s) => NewlyAddedItemsPage())
+            ]),
             AppRoute(ScreenPaths.favorite, (s) => FavoritesPage()),
             AppRoute(ScreenPaths.add, (s) => AddItemsPage()),
             AppRoute(ScreenPaths.message, (s) => MessagesPage()),

@@ -26,7 +26,7 @@ List<OnboardingContents> contents = [
   ),
   OnboardingContents(
     title: "Place a bid on your old items",
-    image: Assets.icons.bid.path,
+    image: Assets.pageIcons.bid.path,
     desc:
         "That precious item can give you an even better earning than you have imagined, get onboard today and start earning.",
   ),
