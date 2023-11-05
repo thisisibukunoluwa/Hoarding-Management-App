@@ -157,7 +157,7 @@ class _LoginPageState extends State<LoginPage> {
                 WideButton(
                     onPressed: () {
                       _name.isEmpty && _email.isNotEmpty ? _submit : null;
-                      context.push('/');
+                      context.go('/');
                     },
                     buttonText: "LOGIN"),
                 Row(

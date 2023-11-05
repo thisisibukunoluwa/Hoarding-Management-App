@@ -8,10 +8,12 @@ import 'package:riverpod/riverpod.dart';
 Future<List<ProductModel>> filteredCards(
   ProductRepository productRepository,
 
-  StateController<String> searchQuery
+  StateController<String> searchQuery,
+
+  StateController<
 ) async {
 
-  final searchQueryValue = searchQuery.state
+  final searchQueryValue = searchQuery;
 
 
 

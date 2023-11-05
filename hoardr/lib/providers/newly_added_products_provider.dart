@@ -19,3 +19,4 @@ class NewlyAddedProducts extends StateNotifier<List<ProductModel>> {
 final newlyAddedProductsProvider = StateNotifierProvider<NewlyAddedProducts, List<ProductModel>>((ref) {
   return NewlyAddedProducts();
 });
+

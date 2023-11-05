@@ -52,7 +52,7 @@ class _HoardrBottomNavigationState extends State<HoardrBottomNavigation> {
       onTap: (value) {
         switch (value) {
           case 0:
-            context.go('/home');
+            context.go('/');
             break;
           case 1:
             context.go('/favorites');

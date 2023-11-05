@@ -14,20 +14,21 @@ class HomePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     
-    return SafeArea(
-        child: Padding(
-            padding: EdgeInsets.all(10.0),
-            child: Column(
-              children: [
-                _AppBar(),
-                _SearchBar(),
-                _CategoryFilters(),
-                _SubHeading(title: "Newly Added Items",route:"newly-added"),
-                _ItemsList(),
-                 _SubHeading(title: "Favorite Items", route: "/favorites",),
-                 _FavoriteItems()
-              ],
-            )));
+    // return SafeArea(
+    //     child: Padding(
+    //         padding: EdgeInsets.all(10.0),
+    //         child: Column(
+    //           children: [
+    //             _AppBar(),
+    //             _SearchBar(),
+    //             _CategoryFilters(),
+    //             _SubHeading(title: "Newly Added Items",route:"newly-added"),
+    //             _ItemsList(),
+    //              _SubHeading(title: "Favorite Items", route: "/favorites",),
+    //              _FavoriteItems()
+    //           ],
+    //         )));
+    return Placeholder();
   }
 }
 
@@ -129,52 +130,52 @@ class _SubHeading extends StatelessWidget {
   }
 }
 
-class _ItemsList extends ConsumerWidget {
-  const _ItemsList({super.key});
+// class _ItemsList extends ConsumerWidget {
+//   const _ItemsList({super.key});
 
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-      final allProducts = ref
+//   @override
+//   Widget build(BuildContext context, WidgetRef ref) {
+//       final allProducts = ref
 
-    return allProducts.when(
-      data: (data) => SizedBox(
-        height: size.height * 0.65,
-        child: GridView.builder(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                childAspectRatio: 0.75,
-                mainAxisSpacing: 10.0),
-            itemCount: 
-            itemBuilder: ((context, index) {
-              return Center(
-                child: CustomGiftCard(
+//     return allProducts.when(
+//       data: (data) => SizedBox(
+//         height: size.height * 0.65,
+//         child: GridView.builder(
+//             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+//                 crossAxisCount: 2,
+//                 childAspectRatio: 0.75,
+//                 mainAxisSpacing: 10.0),
+//             itemCount: 
+//             itemBuilder: ((context, index) {
+//               return Center(
+//                 child: CustomGiftCard(
                   
-                ),
-              );
-            })),
-      ),
+//                 ),
+//               );
+//             })),
+//       ),
             
-      error:(error, stackTrace) => Column(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Center(
-              child: Text('error $error'),
-            ),
-          ],
-      ),
-      loading: () =>  Column(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            Center(
-              child: CircularProgressIndicator(),
-            )
-          ],
-        ),
-    );
-  }
-}
+//       error:(error, stackTrace) => Column(
+//           mainAxisSize: MainAxisSize.max,
+//           mainAxisAlignment: MainAxisAlignment.center,
+//           children: [
+//             Center(
+//               child: Text('error $error'),
+//             ),
+//           ],
+//       ),
+//       loading: () =>  Column(
+//           mainAxisSize: MainAxisSize.max,
+//           mainAxisAlignment: MainAxisAlignment.center,
+//           children: const [
+//             Center(
+//               child: CircularProgressIndicator(),
+//             )
+//           ],
+//         ),
+//     );
+//   }
+// }
 
 
 class _FavoriteItems extends StatelessWidget {

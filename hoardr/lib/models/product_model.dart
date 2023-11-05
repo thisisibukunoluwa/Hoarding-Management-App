@@ -65,7 +65,7 @@ class ProductModel {
         price: '3000',
         thumbnailPath: Assets.products.bag.path,
         publisher: "Anonymous",
-        publisherAvatar: ,
+        publisherAvatar: "https://images.pexels.com/photos/3746226/pexels-photo-3746226.jpeg",
         description:
             "A chic and contemporary accessory, combining style and functionality in a sleek design. Its premium leather construction offers both durability and a touch of elegance, making it a versatile choice for various occasions.",
         categories: [],
@@ -79,6 +79,7 @@ class ProductModel {
         description:
             "A white tee, a timeless classic, offers both comfort and style. Versatile and adaptable, it's a wardrobe essential. With its clean design, it complements any look effortlessly.",
         categories: [ProductCategory.Clothes],
+        publisherAvatar: "https://images.pexels.com/photos/7533347/pexels-photo-7533347.jpeg",
         isFavorite: false,
         dateAdded: DateTime(2023, 9, 30)),
     ProductModel(
@@ -86,6 +87,7 @@ class ProductModel {
         price: '3000',
         thumbnailPath: Assets.products.bag.path,
         publisher: "Anonymous",
+        publisherAvatar:"https://images.pexels.com/photos/8791751/pexels-photo-8791751.jpeg" ,
         description:
             "A chic and contemporary accessory, combining style and functionality in a sleek design. Its premium leather construction offers both durability and a touch of elegance, making it a versatile choice for various occasions.",
         categories: [ProductCategory.Accessories],
@@ -99,6 +101,7 @@ class ProductModel {
         description:
             "A powerful and robust piece of machinery, designed for heavy-duty drilling tasks. With its impressive size and strength, it's a formidable tool for excavation and construction projects. This giant driller is built to tackle even the toughest drilling challenges with efficiency and precision.",
         categories: [ProductCategory.Machinery],
+        publisherAvatar: "https://images.pexels.com/photos/9222620/pexels-photo-9222620.jpeg",
         isFavorite: false,
         dateAdded: DateTime(2023, 9, 30)),
     ProductModel(
@@ -110,6 +113,7 @@ class ProductModel {
             "A specialized enclosure designed to safely store and manage gas components, ensuring proper containment and control.",
         categories: [ProductCategory.Electronics],
         isFavorite: false,
+        publisherAvatar: "https://images.pexels.com/photos/3231041/pexels-photo-3231041.jpeg",
         dateAdded: DateTime(2023, 10, 20)),
     ProductModel(
         name: "Ethiopian Pair Jewelry",
@@ -127,7 +131,7 @@ class ProductModel {
         price: "4500",
         thumbnailPath: Assets.products.piggyCouch.path,
         publisher: "Quadri",
-        publisherAvatar:'https://www.istockphoto.com/photo/black-man-phone-and-smile-in-city-reading-email-social-media-or-blog-on-internet-man-gm1445484957-483880233' ,
+        publisherAvatar:'https://images.pexels.com/photos/9226518/pexels-photo-9226518.jpeg',
         description:
             "It's a cozy and inviting place to relax and unwind, perfect for creating enjoyable moments in your home. Whether you're curling up with a book or simply enjoying its unique design, this piggy couch adds a touch of charm and comfort to your living space.",
         categories: [ProductCategory.Chairs],
@@ -160,7 +164,7 @@ class ProductModel {
         price: "Free",
         thumbnailPath: Assets.products.sack.path,
         publisher: "Samuel",
-        publisherAvatar: 'https://unsplash.com/photos/shallow-focus-photography-of-woman-outdoor-during-day-rDEOVtE7vOs',
+        publisherAvatar: 'https://images.pexels.com/photos/2871659/pexels-photo-2871659.jpeg',
         description:
             "Introducing the versatile Sack Bag - your perfect companion for convenience on the go! This lightweight and stylish bag is designed for the modern lifestyle. Whether you're heading to the gym, carrying your essentials to school, or simply running errands, the sack bag offers effortless organization and a trendy look.",
         categories: [ProductCategory.Accessories],

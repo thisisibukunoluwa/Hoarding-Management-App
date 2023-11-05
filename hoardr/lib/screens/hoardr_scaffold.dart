@@ -8,6 +8,9 @@ class HoardrScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: child, bottomNavigationBar: HoardrBottomNavigation());
+    return Scaffold(
+      body: child, 
+      bottomNavigationBar: HoardrBottomNavigation()
+    );
   }
 }

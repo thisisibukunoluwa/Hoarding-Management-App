@@ -15,6 +15,7 @@ import 'package:hoardr/screens/onboarding/onboarding_page.dart';
 import 'package:hoardr/screens/userprofile/profile_page.dart';
 
 class ScreenPaths {
+  // static String splash = '';
   static String home = '/';
   static String onboarding = '/onboarding';
   static String login = '/login';
@@ -22,39 +23,48 @@ class ScreenPaths {
   static String favorite = '/favorites';
   static String newlyAdded = '/newly-added';
   static String add = '/add';
-  static String message = '/message';
-  static String profile = '/profile';
+  static String messages = '/messages';
   static String categories = '/categories';
+  static String notifications = '/notifications';
+}
+
+class ProfileScreenPath {
+  static String profile = '/profile';
+  static String legal = 'legal';
+  static String termsAndConditions = 'termsandconditions';
+  static String faqs = 'faqs';
+  static String settings = 'settings';
+  static String settingsFullname = 'fullname';
+  static String settingsAddress = 'address';
+  static String settingsPhoneNumber = 'phonenumber';
+  static String settingsEmail = 'emailaddress';
+  static String settingsIDNumber = 'idNumber';
+  static String settingsUpload = 'upload';
+  static String help = 'help';
 }
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
 
 final appRouter = GoRouter(
-    initialLocation: '/onboarding',
+    initialLocation: ScreenPaths.onboarding,
     navigatorKey: _rootNavigatorKey,
     debugLogDiagnostics: true,
     routes: [
-      AppRoute(ScreenPaths.onboarding, (s) => CategoriesPage()),
+      // AppRoute(ScreenPaths.onboarding, (s) => CategoriesPage(), useFade: true),
       AppRoute(ScreenPaths.onboarding, (s) => OnboardingScreen()),
+      AppRoute(ScreenPaths.login,(s) => LoginPage(onSubmit: (String srg) {})),
       AppRoute(ScreenPaths.forgotPassword, (s) => ForgotPassword()),
-      AppRoute(
-        ScreenPaths.login,
-        (s) => LoginPage(
-          onSubmit: (String srg) {},
-        ),
-      ),
       ShellRoute(
           builder: (context, state, child) {
             return HoardrScaffold(child: child);
           },
           routes: [
-            AppRoute(ScreenPaths.home, (s) => HomePage(), routes: [
-              AppRoute(ScreenPaths.newlyAdded, (s) => NewlyAddedItemsPage())
-            ]),
+            AppRoute(ScreenPaths.home, (s) => HomePage()),
+            AppRoute(ScreenPaths.newlyAdded,(s) => NewlyAddedItemsPage()),
             AppRoute(ScreenPaths.favorite, (s) => FavoritesPage()),
             AppRoute(ScreenPaths.add, (s) => AddItemsPage()),
-            AppRoute(ScreenPaths.message, (s) => MessagesPage()),
-            AppRoute(ScreenPaths.profile, (s) => ProfilePage()),
+            AppRoute(ScreenPaths.messages, (s) => MessagesPage()),
+            AppRoute(ProfileScreenPath.profile, (s) => ProfilePage())
           ])
     ]);
 
@@ -81,7 +91,5 @@ class AppRoute extends GoRoute {
             });
   final bool useFade;
 }
-
-
 
 // AppRoute(ScreenPaths.onboarding, (s) => OnboardingScreen()),
