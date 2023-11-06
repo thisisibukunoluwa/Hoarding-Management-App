@@ -30,16 +30,17 @@ class ScreenPaths {
 
 class ProfileScreenPath {
   static String profile = '/profile';
-  static String legal = 'legal';
-  static String termsAndConditions = 'termsandconditions';
+  static String profileSettings = 'profile-settings';
+  static String securitySettings = 'security-settings';
+  static String termsAndConditions = 'terms-and-conditions';
   static String faqs = 'faqs';
-  static String settings = 'settings';
   static String settingsFullname = 'fullname';
   static String settingsAddress = 'address';
   static String settingsPhoneNumber = 'phonenumber';
   static String settingsEmail = 'emailaddress';
   static String settingsIDNumber = 'idNumber';
   static String settingsUpload = 'upload';
+  static String legal = 'legal';
   static String help = 'help';
 }
 
@@ -64,7 +65,12 @@ final appRouter = GoRouter(
             AppRoute(ScreenPaths.favorite, (s) => FavoritesPage()),
             AppRoute(ScreenPaths.add, (s) => AddItemsPage()),
             AppRoute(ScreenPaths.messages, (s) => MessagesPage()),
-            AppRoute(ProfileScreenPath.profile, (s) => ProfilePage())
+            AppRoute(
+              ProfileScreenPath.profile, (s) => ProfilePage(),
+              // routes: [
+              //   ProfileScreenPath.profileSettings, (s) => Profil
+              // ]
+            )
           ])
     ]);
 

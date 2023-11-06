@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hoardr/theme/colors.dart';
 import 'package:hoardr/theme/font_weight.dart';
 import 'package:hoardr/utils/size_config.dart';
+import 'package:hoardr/widgets/settings_panel.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -52,6 +54,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   style: TextStyle(fontWeight: AppFontWeight.bold),
                 ),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
                       'Lagos, Nigeria',
@@ -60,6 +63,29 @@ class _ProfilePageState extends State<ProfilePage> {
                     Icon(Icons.check_circle)
                   ],
                 ),
+                SettingsPanel(
+                    title: "Profile settings",
+                    subtitle: "Edit your profile",
+                    onPressed: () => context.go('profile-settings')),
+                SettingsPanel(
+                    title: "Notification settings",
+                    subtitle: "Activate your notifications",
+                    onPressed: () => context.go('notification-settings'),
+                    isToggleButton: true,
+                    isArrow: false,
+                    ),
+                SettingsPanel(
+                    title: "Security Settings",
+                    subtitle: "Protect yourself from intruders",
+                    onPressed: () => context.go('profile-settings')),
+                SettingsPanel(
+                    title: "Legal",
+                    subtitle: "About our contract with you",
+                    onPressed: () => context.go('profile-settings')),
+                SettingsPanel(
+                    title: "Help",
+                    subtitle: "Get in touch us without any problems",
+                    onPressed: () => context.go('profile-settings')),
                 Text(
                   "Signout",
                   style: TextStyle(fontWeight: AppFontWeight.bold),
@@ -68,62 +94,5 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
           ),
         ));
-  }
-}
-
-class SettingsPanel extends StatefulWidget {
-  final String title;
-  final String subtitle;
-  final IconData icon;
-  final Function()? onPressed;
-
-  const SettingsPanel({
-      super.key,
-      required this.title,
-      required this.subtitle,
-      required this.icon,
-      required this.onPressed,
-      });
-
-  @override
-  State<SettingsPanel> createState() => _SettingsPanelState();
-}
-
-class _SettingsPanelState extends State<SettingsPanel> {
-  final bool isArrow = true;
-
-  final bool isToggleButton = false;
-
-  @override
-  Widget build(BuildContext context) {
-    bool _toggle = false;
-    SizeConfig().init(context);
-    double width = SizeConfig.screenW!;
-    return Container(
-      width: width * 0.9,
-      child: Row(
-        children: [
-          Column(mainAxisAlignment: MainAxisAlignment.start, children: [
-            Text(widget.title, style: Theme.of(context).textTheme.headlineMedium),
-            Text(
-              widget.subtitle,
-              style: Theme.of(context).textTheme.bodyLarge,
-            ),
-          ]),
-        if (isArrow) IconButton(
-            onPressed: widget.onPressed, 
-            icon: Icon(Icons.arrow_forward)
-          ),
-        if (isToggleButton) Switch.adaptive(
-            activeColor: AppColors.primary,
-            activeTrackColor:AppColors.lightDark,
-            value: _toggle, 
-            onChanged: setState(() {
-              _toggle = !_toggle;
-            })
-          )
-        ],
-      ),
-    );
   }
 }
