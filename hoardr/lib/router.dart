@@ -13,6 +13,8 @@ import 'package:hoardr/screens/messages/messages_page.dart';
 import 'package:hoardr/screens/newlyadded/newly_added_items_page.dart';
 import 'package:hoardr/screens/onboarding/onboarding_page.dart';
 import 'package:hoardr/screens/userprofile/profile_page.dart';
+import 'package:hoardr/screens/userprofile/settings/profilesettings/profile_settings_page.dart';
+import 'package:hoardr/screens/userprofile/settings/securitysettings/security_settings_page.dart';
 
 class ScreenPaths {
   // static String splash = '';
@@ -30,7 +32,7 @@ class ScreenPaths {
 
 class ProfileScreenPath {
   static String profile = '/profile';
-  static String profileSettings = 'profile-settings';
+  static String profileSettings = '/profile/profile-settings';
   static String securitySettings = 'security-settings';
   static String termsAndConditions = 'terms-and-conditions';
   static String faqs = 'faqs';
@@ -67,9 +69,14 @@ final appRouter = GoRouter(
             AppRoute(ScreenPaths.messages, (s) => MessagesPage()),
             AppRoute(
               ProfileScreenPath.profile, (s) => ProfilePage(),
-              // routes: [
-              //   ProfileScreenPath.profileSettings, (s) => Profil
-              // ]
+              routes: [
+               AppRoute(
+                ProfileScreenPath.profileSettings, (s) => ProfileSettingsPage()
+                ),
+               AppRoute(
+                ProfileScreenPath.securitySettings, (s) => SecuritySettings()
+                ),
+              ]
             )
           ])
     ]);
