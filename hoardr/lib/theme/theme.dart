@@ -15,7 +15,7 @@ abstract class AppTheme {
         appBarTheme: _appBarTheme(colorScheme),
         iconTheme: _iconThemeData(colorScheme),
         inputDecorationTheme: _inputDecorationTheme(colorScheme),
-        colorScheme: colorScheme,
+        colorScheme: _colorScheme,
       );
 
   static final ColorScheme _colorScheme = const ColorScheme.light().copyWith(
@@ -33,7 +33,7 @@ abstract class AppTheme {
     secondary: AppColors.primaryLight,
     onPrimary: AppColors.white,
     background: AppColors.darkBackground,
-    onBackground: AppColors.white,
+    onBackground: AppColors.lightDark,
     surface: AppColors.darkSurface,
     surfaceTint: AppColors.surfaceTintDark,
   );
@@ -42,25 +42,25 @@ abstract class AppTheme {
      headlineMedium: TextStyle(
       fontSize: 26,
       fontWeight: FontWeight.bold,
-      color: colorScheme.onBackground,
+      color: AppColors.lightDark,
     ),
     titleLarge: TextStyle(
       fontSize: 20,
       fontWeight: FontWeight.bold,
-      color: colorScheme.onBackground,
+      color:  AppColors.lightDark,
     ),
     bodyLarge: TextStyle(
       fontSize: 16,
       fontWeight: FontWeight.bold,
-      color: colorScheme.onBackground,
+      color: AppColors.textColor2,
     ),
     bodyMedium: TextStyle(
-      color: colorScheme.onSurface,
+      color: AppColors.textColor2,
     ),
     labelLarge: TextStyle(
       fontSize: 14,
       fontWeight: FontWeight.bold,
-      color: colorScheme.onPrimary,
+      color: AppColors.textColor2,
     ),
   );
 

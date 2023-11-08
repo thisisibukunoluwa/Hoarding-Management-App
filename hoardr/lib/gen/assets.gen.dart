@@ -26,8 +26,17 @@ class $AssetsIconsGen {
   AssetGenImage get machinery =>
       const AssetGenImage('assets/icons/Machinery.jpg');
 
+  /// File path: assets/icons/UploadItem.png
+  AssetGenImage get uploadItem =>
+      const AssetGenImage('assets/icons/UploadItem.png');
+
+  /// File path: assets/icons/ViewInventory.png
+  AssetGenImage get viewInventory =>
+      const AssetGenImage('assets/icons/ViewInventory.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [clothes, electronics, jewelry, machinery];
+  List<AssetGenImage> get values =>
+      [clothes, electronics, jewelry, machinery, uploadItem, viewInventory];
 }
 
 class $AssetsPageIconsGen {

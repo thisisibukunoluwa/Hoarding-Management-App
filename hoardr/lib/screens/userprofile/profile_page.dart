@@ -20,6 +20,7 @@ class _ProfilePageState extends State<ProfilePage> {
     
     return Scaffold(
         body: PageScaffold(
+          title: "Profile",
           child: Padding(
             padding: EdgeInsets.only(),
             child: Center(

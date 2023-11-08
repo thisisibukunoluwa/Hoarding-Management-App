@@ -2,7 +2,7 @@ import 'package:go_router/go_router.dart';
 import 'package:hoardr/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:hoardr/screens/additems/add_items_page.dart';
+import 'package:hoardr/screens/additem/add_item_page.dart';
 import 'package:hoardr/screens/auth/forgot_password_page.dart';
 import 'package:hoardr/screens/auth/login_page.dart';
 import 'package:hoardr/screens/categories/categories_page.dart';
@@ -32,7 +32,7 @@ class ScreenPaths {
 
 class ProfileScreenPath {
   static String profile = '/profile';
-  static String profileSettings = '/profile/profile-settings';
+  static String profileSettings = 'profile-settings';
   static String securitySettings = 'security-settings';
   static String termsAndConditions = 'terms-and-conditions';
   static String faqs = 'faqs';
@@ -65,7 +65,7 @@ final appRouter = GoRouter(
             AppRoute(ScreenPaths.home, (s) => HomePage()),
             AppRoute(ScreenPaths.newlyAdded,(s) => NewlyAddedItemsPage()),
             AppRoute(ScreenPaths.favorite, (s) => FavoritesPage()),
-            AppRoute(ScreenPaths.add, (s) => AddItemsPage()),
+            AppRoute(ScreenPaths.add, (s) => AddItemPage()),
             AppRoute(ScreenPaths.messages, (s) => MessagesPage()),
             AppRoute(
               ProfileScreenPath.profile, (s) => ProfilePage(),

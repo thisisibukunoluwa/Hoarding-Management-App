@@ -19,7 +19,7 @@ class PageScaffold extends StatelessWidget {
             style: TextStyle(color: Colors.white),
           ),
           backgroundColor: AppColors.primary),
-        body: child, 
+        body:Center(child:  child,) 
     );
   }
 }
