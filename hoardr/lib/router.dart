@@ -3,6 +3,7 @@ import 'package:hoardr/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:hoardr/screens/additem/add_item_page.dart';
+import 'package:hoardr/screens/additem/upload_item_page.dart';
 import 'package:hoardr/screens/auth/forgot_password_page.dart';
 import 'package:hoardr/screens/auth/login_page.dart';
 import 'package:hoardr/screens/categories/categories_page.dart';
@@ -28,6 +29,7 @@ class ScreenPaths {
   static String messages = '/messages';
   static String categories = '/categories';
   static String notifications = '/notifications';
+  static String upload = 'upload-item';
 }
 
 class ProfileScreenPath {
@@ -55,30 +57,30 @@ final appRouter = GoRouter(
     routes: [
       // AppRoute(ScreenPaths.onboarding, (s) => CategoriesPage(), useFade: true),
       AppRoute(ScreenPaths.onboarding, (s) => OnboardingScreen()),
-      AppRoute(ScreenPaths.login,(s) => LoginPage(onSubmit: (String srg) {})),
+      AppRoute(ScreenPaths.login, (s) => LoginPage(onSubmit: (String srg) {})),
       AppRoute(ScreenPaths.forgotPassword, (s) => ForgotPassword()),
+
       ShellRoute(
           builder: (context, state, child) {
             return HoardrScaffold(child: child);
           },
           routes: [
             AppRoute(ScreenPaths.home, (s) => HomePage()),
-            AppRoute(ScreenPaths.newlyAdded,(s) => NewlyAddedItemsPage()),
+            AppRoute(ScreenPaths.newlyAdded, (s) => NewlyAddedItemsPage()),
             AppRoute(ScreenPaths.favorite, (s) => FavoritesPage()),
-            AppRoute(ScreenPaths.add, (s) => AddItemPage()),
+            AppRoute(ScreenPaths.add, (s) => UploadItemPage(), 
+            routes: [
+               AppRoute(ScreenPaths.upload, (s) => UploadItemPage()),
+            ]),
             AppRoute(ScreenPaths.messages, (s) => MessagesPage()),
-            AppRoute(
-              ProfileScreenPath.profile, (s) => ProfilePage(),
-              routes: [
-               AppRoute(
-                ProfileScreenPath.profileSettings, (s) => ProfileSettingsPage()
-                ),
-               AppRoute(
-                ProfileScreenPath.securitySettings, (s) => SecuritySettings()
-                ),
-              ]
-            )
-          ])
+            AppRoute(ProfileScreenPath.profile, (s) => ProfilePage(), routes: [
+              AppRoute(ProfileScreenPath.profileSettings,
+                  (s) => ProfileSettingsPage()),
+              AppRoute(ProfileScreenPath.securitySettings,
+                  (s) => SecuritySettings()),
+            ])
+          ]
+        )
     ]);
 
 class AppRoute extends GoRoute {

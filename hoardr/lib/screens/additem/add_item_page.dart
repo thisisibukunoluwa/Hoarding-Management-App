@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hoardr/gen/assets.gen.dart';
+import 'package:hoardr/theme/colors.dart';
+import 'package:hoardr/theme/font_weight.dart';
+import 'package:hoardr/utils/size_config.dart';
 import 'package:hoardr/widgets/page_scaffold.dart';
 
 
@@ -16,52 +19,94 @@ class _AddItemPageState extends State<AddItemPage> {
 
   @override
   Widget build(BuildContext context) {
+      SizeConfig().init(context);
+    double width = SizeConfig.screenW!;
+    double height = SizeConfig.screenH!;
+
     return PageScaffold(
       title: "Add Item",
       child: Column(
         children: [
+          const SizedBox(
+            height: 7,
+          ),
           GestureDetector(
-            child: Card(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  children: [
-                    Assets.icons.uploadItem.image(),
-                    Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text("Upload item", style: Theme.of(context).textTheme.headlineSmall),
-                         Text(
-                          "Have a new item, upload by clicking on this button."
-                          ,style: Theme.of(context).textTheme.bodySmall
-                        )
-                      ],
-                    )
-                  ]
+            onTap: () => context.go('upload-item'),
+            child: SizedBox(
+              height: height * 0.12,
+              width: width * 0.9,
+              child: Card(
+                elevation: 0.4,
+                shadowColor: const Color.fromARGB(255, 236, 234, 234),
+                child: Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Assets.icons.uploadItem.image(),
+                      const SizedBox(width: 7,),
+                      const Expanded(
+                        child: Column(
+                             mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Upload item", 
+                              style: TextStyle(
+                               color: AppColors.textColor1,
+                              fontWeight: AppFontWeight.bold,
+                              fontSize: 19
+                            )),
+                            Text(
+                                  "Have a new item? Upload by clicking on this button.",
+                                  maxLines: 2)
+                          ],
+                        ),
+                      )
+                    ]
+                  ),
                 ),
               ),
             ),
           ),
           GestureDetector(
-            child: Card(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  children: [
-                     Assets.icons.viewInventory.image(),
-                    Column(
-                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text("View inventory",
-                          style: Theme.of(context).textTheme.headlineSmall),
-                           Text(
-                                "View items uploaded, check quantity available and edit the item.",
-                                style: Theme.of(context).textTheme.bodySmall,
-                            ),
-                          
-                      ],
-                    )
-                  ]
+            child:SizedBox(
+               height: height * 0.12,
+              width:  width * 0.9,
+              child: Card(
+                elevation: 0.4,
+                shadowColor: const Color.fromARGB(255, 236, 234, 234),
+                child: Padding(
+                 padding: const EdgeInsets.all(12.0),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                       Assets.icons.viewInventory.image(),
+                       const SizedBox(
+                          width: 7,
+                        ),
+                      const Expanded(
+                        child: Column(
+                           mainAxisAlignment: MainAxisAlignment.spaceAround,
+                           crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "View inventory",
+                              style: TextStyle(
+                                color: AppColors.textColor1,
+                                fontSize: 19,
+                              fontWeight: AppFontWeight.bold,
+                               )
+                              ),
+                               Text(
+                                    "View items uploaded, check quantity available and edit the item.",
+                                     maxLines: 2
+                                ),
+                          ],
+                        ),
+                      )
+                    ]
+                  ),
                 ),
               ),
             ),

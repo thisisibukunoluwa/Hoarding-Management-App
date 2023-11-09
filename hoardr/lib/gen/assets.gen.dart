@@ -30,9 +30,9 @@ class $AssetsIconsGen {
   AssetGenImage get uploadItem =>
       const AssetGenImage('assets/icons/UploadItem.png');
 
-  /// File path: assets/icons/ViewInventory.png
+  /// File path: assets/icons/ViewInventory.jpg
   AssetGenImage get viewInventory =>
-      const AssetGenImage('assets/icons/ViewInventory.png');
+      const AssetGenImage('assets/icons/ViewInventory.jpg');
 
   /// List of all assets
   List<AssetGenImage> get values =>

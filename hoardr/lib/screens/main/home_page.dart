@@ -13,7 +13,6 @@ class HomePage extends ConsumerWidget {
   HomePage({super.key});
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    
     // return SafeArea(
     //     child: Padding(
     //         padding: EdgeInsets.all(10.0),
@@ -28,7 +27,10 @@ class HomePage extends ConsumerWidget {
     //              _FavoriteItems()
     //           ],
     //         )));
-    return Placeholder();
+    return Center(
+      child: TextButton(
+          onPressed: () => context.go('newly-added'), child: Text("hello")),
+    );
   }
 }
 
@@ -83,18 +85,18 @@ class _CategoryFilters extends ConsumerWidget {
         height: 80,
         child: Column(
           children: [
-           _SubHeading(title: "Newly Added Items", route: "newly-added"),
+            _SubHeading(title: "Newly Added Items", route: "newly-added"),
             ListView(
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
                 children: [
-                   ...ProductCategory.values.asMap().entries.map((entry) {
-                      ProductCategory category = entry.value;
-                     return CategoryChip(
-                         label: category.capitalName(),
-                         imagePath: enumToImageMap[category.name] ?? 'assets/placeholder/placeholder.png'
-                       );
-                   }),
+                  ...ProductCategory.values.asMap().entries.map((entry) {
+                    ProductCategory category = entry.value;
+                    return CategoryChip(
+                        label: category.capitalName(),
+                        imagePath: enumToImageMap[category.name] ??
+                            'assets/placeholder/placeholder.png');
+                  }),
                   const SizedBox(
                     height: 10,
                   )
@@ -105,17 +107,15 @@ class _CategoryFilters extends ConsumerWidget {
 }
 
 class _SubHeading extends StatelessWidget {
-
-  final String title; 
+  final String title;
   final String route;
 
   const _SubHeading({required this.title, required this.route, super.key});
 
-
   @override
   Widget build(BuildContext context) {
     return Row(children: [
-        Row(
+      Row(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -145,16 +145,16 @@ class _SubHeading extends StatelessWidget {
 //                 crossAxisCount: 2,
 //                 childAspectRatio: 0.75,
 //                 mainAxisSpacing: 10.0),
-//             itemCount: 
+//             itemCount:
 //             itemBuilder: ((context, index) {
 //               return Center(
 //                 child: CustomGiftCard(
-                  
+
 //                 ),
 //               );
 //             })),
 //       ),
-            
+
 //       error:(error, stackTrace) => Column(
 //           mainAxisSize: MainAxisSize.max,
 //           mainAxisAlignment: MainAxisAlignment.center,
@@ -177,15 +177,12 @@ class _SubHeading extends StatelessWidget {
 //   }
 // }
 
-
 class _FavoriteItems extends StatelessWidget {
   const _FavoriteItems({super.key});
 
-
-
   @override
   Widget build(BuildContext context) {
-    return  Placeholder();
+    return Placeholder();
   }
 }
 
@@ -207,8 +204,7 @@ class CustomProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
+    return Stack(children: [
       Column(
         children: [
           Expanded(
@@ -216,15 +212,17 @@ class CustomProductCard extends StatelessWidget {
             product.thumbnailPath,
             fit: BoxFit.cover,
           )),
-            SizedBox(
-              height: 10,
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Positioned(
-              //to do 
-                bottom: 10.0, right: 10.0, child: Icon(Icons.favorite))
+          SizedBox(
+            height: 10,
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Positioned(
+              //to do
+              bottom: 10.0,
+              right: 10.0,
+              child: Icon(Icons.favorite))
         ],
       )
     ]);
