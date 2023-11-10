@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:hoardr/models/product_model.dart';
 import 'package:hoardr/utils/size_config.dart';
+import 'package:hoardr/widgets/custom_text_field.dart';
+import 'package:hoardr/widgets/page_scaffold.dart';
+import 'package:hoardr/widgets/wide_button.dart';
 
 class UploadItemPage extends StatefulWidget {
   const UploadItemPage({super.key});
@@ -25,142 +29,139 @@ class _UploadItemPageState extends State<UploadItemPage> {
     double width = SizeConfig.screenW!;
     double height = SizeConfig.screenH!;
 
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: SafeArea(
-        child: Column(
-          children: [
-            Expanded(
-              flex: 3,
-              child: PageView(
-                physics: const ClampingScrollPhysics(),
-                controller: _controller,
-                onPageChanged: (value) => setState(() => _currentPage = value),
-                children: [],
-              ),
-            ),
-            Expanded(
-              flex: 1,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    width: width * 0.90,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: List.generate(
-                            contents.length,
-                            (int index) => buildDots(
-                                index: index, currentPage: _currentPage),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  _currentPage + 1 == contents.length
-                      ? Padding(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 30, horizontal: 0),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              WideButton(
-                                onPressed: () {},
-                                buttonText: "DECLUTTER YOUR SPACE TODAY",
-                                isSmallScreen: (width <= 550),
-                                fontSize: (width <= 550) ? 13 : 17,
-                              ),
-                              SizedBox(
-                                height: 30,
-                              ),
-                              RichText(
-                                text: TextSpan(
-                                  text: "Already have an account? ",
-                                  style: TextStyle(color: Colors.black),
-                                  children: <TextSpan>[
-                                    TextSpan(
-                                        text: "Login",
-                                        style: TextStyle(
-                                          color: AppColors.primary,
-                                        ),
-                                        recognizer: TapGestureRecognizer()
-                                          ..onTap = () {
-                                            context.go('/login');
-                                          }),
-                                  ],
-                                ),
-                              )
-                            ],
-                          ))
-                      : Padding(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 30, horizontal: 0),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              WideButton(
-                                  onPressed: () {
-                                    _controller.nextPage(
-                                      duration:
-                                          const Duration(milliseconds: 200),
-                                      curve: Curves.easeIn,
-                                    );
-                                  },
-                                  buttonText: "NEXT",
-                                  isSmallScreen: (width <= 550),
-                                  fontSize: (width <= 550) ? 13 : 17),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  TextButton(
-                                    onPressed: () {
-                                      _controller.jumpToPage(2);
-                                    },
-                                    child: const Text(
-                                      "Skip",
-                                      style: TextStyle(color: Colors.black),
-                                    ),
-                                    style: TextButton.styleFrom(
-                                      elevation: 0,
-                                      textStyle: TextStyle(
-                                        fontWeight: AppFontWeight.regular,
-                                        fontSize: (width <= 550) ? 13 : 17,
-                                      ),
-                                    ),
-                                  ),
-                                  Icon(Icons.chevron_right)
-                                ],
-                              )
-                            ],
-                          ),
-                        )
-                ],
-              ),
-            ),
-          ],
-        ),
+    void toNextPage() {
+      _controller.nextPage(
+        duration: const Duration(milliseconds: 200),
+        curve: Curves.easeIn,
+      );
+    }
+
+    return PageScaffold(
+      title: "Add Item",
+      child: PageView(
+        physics: const ClampingScrollPhysics(),
+        controller: _controller,
+        onPageChanged: (value) => setState(() => _currentPage = value),
+        children: [
+          _AddItemPage1(
+            onPressed: toNextPage,
+          ),
+          _AddItemPage2()
+        ],
       ),
     );
   }
 }
 
 class _AddItemPage1 extends StatefulWidget {
-  const _AddItemPage1({super.key});
+  final VoidCallback onPressed;
+
+  const _AddItemPage1({super.key, required this.onPressed});
 
   @override
   State<_AddItemPage1> createState() => __AddItemPage1State();
 }
 
 class __AddItemPage1State extends State<_AddItemPage1> {
+  final suggestions = [
+    "Lagos, Nigeria",
+    "London, United Kingdom",
+    "Paris,France",
+    "New York City,United States"
+  ];
+
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      children: [
-        
-      ],
+    SizeConfig().init(context);
+    double width = SizeConfig.screenW!;
+    double height = SizeConfig.screenH!;
+
+    return SizedBox(
+      width: width * 0.9,
+      child: Column(
+        children: [
+          const Text('Make your items visible. 1 / 2'),
+             Column(
+              children: [
+                Text(
+                  "Category*",
+                ),
+                Autocomplete(
+                  optionsBuilder: (TextEditingValue textEditingValue) {
+                    if (textEditingValue.text == '') {
+                      return const Iterable<String>.empty();
+                    } else {
+                      List<String> matches = <String>[];
+                      matches.addAll(
+                          ProductCategory.values.map((e) => e.name).toList());
+                      matches.retainWhere((s) {
+                        return s
+                            .toLowerCase()
+                            .contains(textEditingValue.text.toLowerCase());
+                      });
+                      return matches;
+                    }
+                  },
+                  onSelected: (String selection) {
+                    print('You just selected $selection');
+                  },
+                )
+              ],
+            ),
+          Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text("Location*"),
+                Autocomplete(
+                  optionsBuilder: (TextEditingValue textEditingValue) {
+                    if (textEditingValue.text == '') {
+                      return const Iterable<String>.empty();
+                    } else {
+                      List<String> matches = <String>[];
+                      matches.addAll(suggestions);
+                      matches.retainWhere((s) {
+                        return s
+                            .toLowerCase()
+                            .contains(textEditingValue.text.toLowerCase());
+                      });
+                      return matches;
+                    }
+                  },
+                  onSelected: (String selection) {
+                    print('You just selected $selection');
+                  },
+                )
+              ],
+            ),
+            Column(
+              children: [
+                Text("Title*"),
+                CustomTextField(
+                  label: "Enter Title",
+                )
+              ],
+            ),
+            Column(
+              children: [
+                Text("Description*"),
+                Padding(
+                    padding: const EdgeInsets.only(bottom: 20),
+                    child: TextField(
+                      maxLength: 100, // Set the maximum number of characters
+                      decoration: InputDecoration(
+                        labelText: 'Describe Item',
+                        border: OutlineInputBorder(),
+                      ),
+                    ))
+              ],
+            ),
+          WideButton(
+              onPressed: widget.onPressed,
+              buttonText: "CONTINUE",
+              isSmallScreen: (width <= 550),
+              fontSize: (width <= 550) ? 13 : 17),
+        ],
+      ),
     );
   }
 }

@@ -35,50 +35,41 @@ class _SettingsPanelState extends State<SettingsPanel> {
     return Padding(
       padding: const EdgeInsets.only(bottom: 10),
       child: Container(
-        decoration: BoxDecoration(
-            boxShadow: [
-          //      BoxShadow(
-          //   color: AppColors.demiLightDark2,
-          //   spreadRadius: 1,
-          //   blurRadius: 1,
-          //   offset: const Offset(0, 5),
-          // ),
-          // BoxShadow(
-          //   color: Colors.grey.shade300,
-          //   offset: const Offset(0, 0),
-          // )
-            ]
-        ),
-        height: height * 0.08,
-        width: width * 0.9,
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(widget.title,
-                      style: Theme.of(context).textTheme.bodyMedium),
-                  Text(
-                    widget.subtitle,
-                    style: Theme.of(context).textTheme.bodySmall,
-                  ),
-                ]),
-            if (widget.isArrow)
-              IconButton(
-                  onPressed: widget.onPressed,
-                  icon: Icon(Icons.arrow_forward_ios)),
-            if (widget.isToggleButton)
-              Switch.adaptive(
-                  activeColor: AppColors.primary,
-                  activeTrackColor: AppColors.lightDark,
-                  value: _toggle,
-                  onChanged: (value) => setState(() {
-                        _toggle = !_toggle;
-                      }))
-          ],
+        
+          width: width * 0.9,
+        child: Card(
+          elevation: 0.4,
+          shadowColor: const Color.fromARGB(255, 236, 234, 234),
+          // height: height * 0.08,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(widget.title,
+                        style: Theme.of(context).textTheme.bodyMedium),
+                    Text(
+                      widget.subtitle,
+                      style: Theme.of(context).textTheme.bodySmall,
+                    ),
+                  ]),
+              if (widget.isArrow)
+                IconButton(
+                    onPressed: widget.onPressed,
+                    icon: Icon(Icons.arrow_forward_ios)),
+              if (widget.isToggleButton)
+                Switch.adaptive(
+                    activeColor: AppColors.primary,
+                    activeTrackColor: AppColors.lightDark,
+                    value: _toggle,
+                    onChanged: (value) => setState(() {
+                          _toggle = !_toggle;
+                        }))
+            ],
+          ),
         ),
       ),
     );
