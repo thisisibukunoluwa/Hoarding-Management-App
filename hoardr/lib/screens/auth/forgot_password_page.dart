@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hoardr/utils/size_config.dart';
 import 'package:hoardr/widgets/custom_text_field.dart';
 import 'package:hoardr/widgets/register_today.dart';
@@ -45,7 +46,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                   SizedBox(
                     height: 20,
                   ),
-                  WideButton(onPressed: () {}, buttonText: "CONTINUE"),
+                  WideButton(onPressed: () {}, buttonText: "CONTINUE", fontSize: 13.sp,),
                   RegisterToday(parentContext: context)
                 ],
               ),

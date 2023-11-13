@@ -1,5 +1,11 @@
+// ignore_for_file: prefer_const_literals_to_create_immutables
+
+import 'package:dropdown_textfield/dropdown_textfield.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hoardr/models/product_model.dart';
+import 'package:hoardr/theme/colors.dart';
+import 'package:hoardr/theme/font_weight.dart';
 import 'package:hoardr/utils/size_config.dart';
 import 'package:hoardr/widgets/custom_text_field.dart';
 import 'package:hoardr/widgets/page_scaffold.dart';
@@ -25,10 +31,6 @@ class _UploadItemPageState extends State<UploadItemPage> {
 
   @override
   Widget build(BuildContext context) {
-    SizeConfig().init(context);
-    double width = SizeConfig.screenW!;
-    double height = SizeConfig.screenH!;
-
     void toNextPage() {
       _controller.nextPage(
         duration: const Duration(milliseconds: 200),
@@ -46,7 +48,7 @@ class _UploadItemPageState extends State<UploadItemPage> {
           _AddItemPage1(
             onPressed: toNextPage,
           ),
-          _AddItemPage2()
+          const _AddItemPage2()
         ],
       ),
     );
@@ -63,104 +65,198 @@ class _AddItemPage1 extends StatefulWidget {
 }
 
 class __AddItemPage1State extends State<_AddItemPage1> {
-  final suggestions = [
-    "Lagos, Nigeria",
-    "London, United Kingdom",
-    "Paris,France",
-    "New York City,United States"
-  ];
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  FocusNode searchFocusNode = FocusNode();
+  FocusNode textFieldFocusNode = FocusNode();
+  late SingleValueDropDownController _cnt;
 
   @override
-  Widget build(BuildContext context) {
-    SizeConfig().init(context);
-    double width = SizeConfig.screenW!;
-    double height = SizeConfig.screenH!;
+  void initState() {
+    _cnt = SingleValueDropDownController();
+    super.initState();
+  }
 
-    return SizedBox(
-      width: width * 0.9,
-      child: Column(
-        children: [
-          const Text('Make your items visible. 1 / 2'),
-             Column(
+  @override
+  void dispose() {
+    _cnt.dispose();
+    super.dispose();
+  }
+
+@override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Padding(
+        padding:EdgeInsets.symmetric(horizontal: 19.7.w, vertical: 1.7.h),
+        child: Form(
+          key: _formKey,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+             SizedBox(
+                height:20.h,
+            ),
+            RichText(
+              text: TextSpan(
+                style: DefaultTextStyle.of(context).style,
+                children: [
+                const TextSpan(
+                    text: 'Make your items visible. 1 / ',
+                    style: TextStyle(
+                      fontWeight: AppFontWeight.bold,
+                      color: AppColors.textColor1
+                    ),
+                  ),
+                  const TextSpan(
+                    text: '2',
+                    style: TextStyle(
+                      fontWeight: AppFontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+             SizedBox(
+                height: 35.h,
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
+                const Text(
                   "Category*",
                 ),
-                Autocomplete(
-                  optionsBuilder: (TextEditingValue textEditingValue) {
-                    if (textEditingValue.text == '') {
-                      return const Iterable<String>.empty();
-                    } else {
-                      List<String> matches = <String>[];
-                      matches.addAll(
-                          ProductCategory.values.map((e) => e.name).toList());
-                      matches.retainWhere((s) {
-                        return s
-                            .toLowerCase()
-                            .contains(textEditingValue.text.toLowerCase());
-                      });
-                      return matches;
-                    }
-                  },
-                  onSelected: (String selection) {
-                    print('You just selected $selection');
-                  },
-                )
+                SizedBox(
+                  height: 10.h,
+                ),
+                DropDownTextField( 
+                    controller: _cnt,
+                    clearOption: true,
+                    searchDecoration: const InputDecoration(
+                        hintText: "choose the category of the item you want to add"),
+                    validator: (value) {
+                      if (value == null) {
+                        return "This field is required";
+                      } else {
+                        return null;
+                      }
+                    },
+                    dropDownItemCount: 6,
+                    dropDownList: const [
+                      DropDownValueModel(name: 'name1', value: "value1"),
+                      DropDownValueModel(
+                          name: 'name2',
+                          value: "value2",
+                          toolTipMsg:
+                              "DropDownButton is a widget that we can use to select one unique value from a set of values"),
+                      DropDownValueModel(name: 'name3', value: "value3"),
+                      DropDownValueModel(
+                          name: 'name4',
+                          value: "value4",
+                          toolTipMsg:
+                              "DropDownButton is a widget that we can use to select one unique value from a set of values"),
+                      DropDownValueModel(name: 'name5', value: "value5"),
+                      DropDownValueModel(name: 'name6', value: "value6"),
+                      DropDownValueModel(name: 'name7', value: "value7"),
+                      DropDownValueModel(name: 'name8', value: "value8"),
+                    ],
+                    onChanged: (val) {},
+                  ),
               ],
             ),
-          Column(
+            SizedBox(
+              height:30.h,
+            ),
+            Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Location*"),
-                Autocomplete(
-                  optionsBuilder: (TextEditingValue textEditingValue) {
-                    if (textEditingValue.text == '') {
-                      return const Iterable<String>.empty();
-                    } else {
-                      List<String> matches = <String>[];
-                      matches.addAll(suggestions);
-                      matches.retainWhere((s) {
-                        return s
-                            .toLowerCase()
-                            .contains(textEditingValue.text.toLowerCase());
-                      });
-                      return matches;
-                    }
-                  },
-                  onSelected: (String selection) {
-                    print('You just selected $selection');
-                  },
-                )
+                const Text("Location*"),
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  DropDownTextField(
+                    controller: _cnt,
+                    clearOption: true,
+                    searchDecoration: const InputDecoration(
+                        hintText:
+                            "choose the category of the item you want to add"),
+                    validator: (value) {
+                      if (value == null) {
+                        return "This field is required";
+                      } else {
+                        return null;
+                      }
+                    },
+                    dropDownItemCount: 6,
+                    dropDownList: const [
+                      DropDownValueModel(name: 'name1', value: "value1"),
+                      DropDownValueModel(
+                          name: 'name2',
+                          value: "value2",
+                          toolTipMsg:
+                              "DropDownButton is a widget that we can use to select one unique value from a set of values"),
+                      DropDownValueModel(name: 'name3', value: "value3"),
+                      DropDownValueModel(
+                          name: 'name4',
+                          value: "value4",
+                          toolTipMsg:
+                              "DropDownButton is a widget that we can use to select one unique value from a set of values"),
+                      DropDownValueModel(name: 'name5', value: "value5"),
+                      DropDownValueModel(name: 'name6', value: "value6"),
+                      DropDownValueModel(name: 'name7', value: "value7"),
+                      DropDownValueModel(name: 'name8', value: "value8"),
+                    ],
+                    onChanged: (val) {},
+                  ),
               ],
             ),
+            SizedBox(
+              height: 30.h,
+            ),
             Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Title*"),
                 CustomTextField(
-                  label: "Enter Title",
+                  label: "Title*",
                 )
               ],
             ),
-            Column(
+               SizedBox(
+                height: 30.h,
+              ),
+             Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text("Description*"),
+                     SizedBox(
+                    height: 10.h,
+                  ),
                 Padding(
-                    padding: const EdgeInsets.only(bottom: 20),
-                    child: TextField(
-                      maxLength: 100, // Set the maximum number of characters
-                      decoration: InputDecoration(
-                        labelText: 'Describe Item',
-                        border: OutlineInputBorder(),
+                    padding: EdgeInsets.only(bottom: 20),
+                    child: SizedBox(
+                      width: 353.7.w,
+                      height:150,
+                      child: TextFormField(
+                        maxLines: 6,
+                        maxLength: 200, 
+                        keyboardType: TextInputType.multiline,
+                        decoration: InputDecoration(
+                          hintText: 'Describe Item',
+                           floatingLabelBehavior:FloatingLabelBehavior.never,
+                          border: OutlineInputBorder(),
+                        ),
                       ),
                     ))
               ],
             ),
-          WideButton(
-              onPressed: widget.onPressed,
-              buttonText: "CONTINUE",
-              isSmallScreen: (width <= 550),
-              fontSize: (width <= 550) ? 13 : 17),
-        ],
+            WideButton(
+                onPressed: widget.onPressed,
+                buttonText: "CONTINUE",
+                fontSize: 13.sp,
+                isSmallScreen: false,
+            ),
+          ],
+        ),
+        ),
       ),
     );
   }
@@ -176,6 +272,62 @@ class _AddItemPage2 extends StatefulWidget {
 class __AddItemPage2State extends State<_AddItemPage2> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+      final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+    return SingleChildScrollView(
+      child: Padding(
+         padding:EdgeInsets.symmetric(
+          horizontal: 19.7.w, vertical: 1.7.h,
+        ),
+        child: Form(
+          key: _formKey,
+          child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+               SizedBox(
+                height: 20.h,
+              ),
+                 RichText(
+                text: TextSpan(
+                  style: DefaultTextStyle.of(context).style,
+                  children: [
+                    const TextSpan(
+                      text: 'Make your items visible. 2 / ',
+                      style: TextStyle(
+                          fontWeight: AppFontWeight.bold,
+                          color: AppColors.textColor1),
+                    ),
+                    const TextSpan(
+                      text: '2',
+                      style: TextStyle(
+                        fontWeight: AppFontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 35.h,
+              ),
+              Column(
+                children: [
+                  Column(
+                     children: [
+                        Text(
+                          "Enter Personal Details",
+                          style: Theme.of(context).textTheme.bodyLarge,
+                        )
+                     ],
+                  ),
+                  WideButton(
+                    onPressed: (){}, 
+                    buttonText: "PREVIEW ITEM",
+                     fontSize: 13.sp 
+                    )
+                ],
+              )
+          ])
+        ),
+      ),
+    );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hoardr/gen/assets.gen.dart';
 import 'package:hoardr/theme/colors.dart';
@@ -19,9 +20,6 @@ class _AddItemPageState extends State<AddItemPage> {
 
   @override
   Widget build(BuildContext context) {
-      SizeConfig().init(context);
-    double width = SizeConfig.screenW!;
-    double height = SizeConfig.screenH!;
 
     return PageScaffold(
       title: "Add Item",
@@ -33,8 +31,8 @@ class _AddItemPageState extends State<AddItemPage> {
           GestureDetector(
             onTap: () => context.go('upload-item'),
             child: SizedBox(
-              height: height * 0.12,
-              width: width * 0.9,
+              height: 47.16.h,
+              width: 353.7.w,
               child: Card(
                 elevation: 0.4,
                 shadowColor: const Color.fromARGB(255, 236, 234, 234),
@@ -45,7 +43,7 @@ class _AddItemPageState extends State<AddItemPage> {
                     children: [
                       Assets.icons.uploadItem.image(),
                       const SizedBox(width: 7,),
-                      const Expanded(
+                       Expanded(
                         child: Column(
                              mainAxisAlignment: MainAxisAlignment.spaceAround,
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -55,7 +53,7 @@ class _AddItemPageState extends State<AddItemPage> {
                               style: TextStyle(
                                color: AppColors.textColor1,
                               fontWeight: AppFontWeight.bold,
-                              fontSize: 19
+                              fontSize: 19.sp
                             )),
                             Text(
                                   "Have a new item? Upload by clicking on this button.",
@@ -71,8 +69,8 @@ class _AddItemPageState extends State<AddItemPage> {
           ),
           GestureDetector(
             child:SizedBox(
-               height: height * 0.12,
-              width:  width * 0.9,
+               height: 47.16.h,
+               width: 353.7.w,
               child: Card(
                 elevation: 0.4,
                 shadowColor: const Color.fromARGB(255, 236, 234, 234),

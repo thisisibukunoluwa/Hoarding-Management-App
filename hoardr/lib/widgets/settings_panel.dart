@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:hoardr/theme/colors.dart';
-import 'package:hoardr/utils/size_config.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SettingsPanel extends StatefulWidget {
   final String title;
@@ -27,20 +27,16 @@ class SettingsPanel extends StatefulWidget {
 class _SettingsPanelState extends State<SettingsPanel> {
   @override
   Widget build(BuildContext context) {
-    bool _toggle = false;
-    SizeConfig().init(context);
-    double width = SizeConfig.screenW!;
-    double height = SizeConfig.screenH!;
 
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 10),
-      child: Container(
-        
-          width: width * 0.9,
+    bool _toggle = false;
+
+    return Padding( 
+      padding: EdgeInsets.symmetric(
+        horizontal:19.7.w , vertical: 1.7.h
+       ),
         child: Card(
           elevation: 0.4,
-          shadowColor: const Color.fromARGB(255, 236, 234, 234),
-          // height: height * 0.08,
+          shadowColor: Color.fromARGB(255, 17, 4, 4),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -67,10 +63,9 @@ class _SettingsPanelState extends State<SettingsPanel> {
                     value: _toggle,
                     onChanged: (value) => setState(() {
                           _toggle = !_toggle;
-                        }))
+                   }))
             ],
           ),
-        ),
       ),
     );
   }

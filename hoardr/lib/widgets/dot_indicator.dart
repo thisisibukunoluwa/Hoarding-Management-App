@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hoardr/theme/colors.dart';
 
 buildDots({int? index, int? currentPage}) {
@@ -10,10 +11,10 @@ buildDots({int? index, int? currentPage}) {
       ),
       color:  (currentPage == index ) ? AppColors.primary : AppColors.demiLightDark2
     ),
-    margin: const EdgeInsets.only(right: 5),
-    height: 10,
+    margin: EdgeInsets.only(right: 5.w),
+    height: 10.h,
     curve: Curves.easeIn,
-    width: 10 
+    width: 10.w
   );
 }
 

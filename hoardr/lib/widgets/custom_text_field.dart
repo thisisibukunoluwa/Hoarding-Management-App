@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hoardr/theme/colors.dart';
 import 'package:hoardr/theme/font_weight.dart';
 
@@ -48,7 +49,7 @@ class CustomTextField extends StatelessWidget {
         Text(
           this.label,
           style: TextStyle(
-              fontSize: 14.0, height: 1.5, fontWeight: AppFontWeight.regular),
+              fontSize: 14.0.sp, height: 1.5.h, fontWeight: AppFontWeight.regular),
         ),
         SizedBox(height: 8),
         Container(
@@ -58,7 +59,7 @@ class CustomTextField extends StatelessWidget {
             enabled: enabled,
             onChanged: onChange,
             style: TextStyle(
-              fontSize: 16.0,
+              fontSize: 16.0.sp,
             ),
             key: key,
             controller: controller,

@@ -1,3 +1,4 @@
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hoardr/theme/border_radius.dart';
 
 import 'colors.dart';
@@ -40,25 +41,25 @@ abstract class AppTheme {
 
   static TextTheme _textTheme(ColorScheme colorScheme) => GoogleFonts.mulishTextTheme().copyWith(
      headlineMedium: TextStyle(
-      fontSize: 26,
+      fontSize: 26.sp,
       fontWeight: FontWeight.bold,
       color: AppColors.lightDark,
     ),
     titleLarge: TextStyle(
-      fontSize: 20,
+      fontSize: 20.sp,
       fontWeight: FontWeight.bold,
       color:  AppColors.lightDark,
     ),
     bodyLarge: TextStyle(
-      fontSize: 16,
+      fontSize: 16.sp,
       fontWeight: FontWeight.bold,
-      color: AppColors.textColor2,
+      color: AppColors.textColor1,
     ),
     bodyMedium: TextStyle(
       color: AppColors.textColor2,
     ),
     labelLarge: TextStyle(
-      fontSize: 14,
+      fontSize: 14.sp,
       fontWeight: FontWeight.bold,
       color: AppColors.textColor2,
     ),

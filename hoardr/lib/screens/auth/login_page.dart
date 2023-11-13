@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hoardr/theme/colors.dart';
 import 'package:hoardr/theme/font_weight.dart';
@@ -159,11 +160,12 @@ class _LoginPageState extends State<LoginPage> {
                       _name.isEmpty && _email.isNotEmpty ? _submit : null;
                       context.go('/');
                     },
-                    buttonText: "LOGIN"),
+                    buttonText: "LOGIN", fontSize: 13.sp,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [RegisterToday(parentContext: context)],
                 ),
+                
               ],
             ),
           ),

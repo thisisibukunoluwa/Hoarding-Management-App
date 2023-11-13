@@ -47,6 +47,8 @@ dependencies:
   uuid: ^4.1.0
   flutter_riverpod: ^2.4.4
   riverpod_lint: ^2.3.3
+  flutter_screenutil: ^5.9.0
+  dropdown_textfield: ^1.0.8
   
 
 dev_dependencies:

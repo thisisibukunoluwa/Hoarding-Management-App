@@ -68,7 +68,8 @@ final appRouter = GoRouter(
             AppRoute(ScreenPaths.home, (s) => HomePage()),
             AppRoute(ScreenPaths.newlyAdded, (s) => NewlyAddedItemsPage()),
             AppRoute(ScreenPaths.favorite, (s) => FavoritesPage()),
-            AppRoute(ScreenPaths.add, (s) => UploadItemPage(), 
+            AppRoute(
+              ScreenPaths.add, (s) => UploadItemPage(), 
             routes: [
                AppRoute(ScreenPaths.upload, (s) => UploadItemPage()),
             ]),

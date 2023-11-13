@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hoardr/theme/colors.dart';
 import 'package:hoardr/utils/size_config.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class WideButton extends StatelessWidget {
   final VoidCallback onPressed;
@@ -11,18 +12,17 @@ class WideButton extends StatelessWidget {
   WideButton({
     required this.onPressed,
     required this.buttonText,
-    this.fontSize = 13, // Default font size
+    required this.fontSize,
     this.isSmallScreen = false, // Default to false
   });
 
   @override
   Widget build(BuildContext context) {
-     SizeConfig().init(context);
-    double width = SizeConfig.screenW!;
-    double height = SizeConfig.screenH!;
+
+   
     
     return Container(
-      width: width * 0.90,
+      width: 353.7.w,
       child: ElevatedButton(
         onPressed: onPressed,
         child: Text(buttonText, style: TextStyle(letterSpacing: 1),),
@@ -33,8 +33,8 @@ class WideButton extends StatelessWidget {
           ),
           elevation: 0,
           padding: isSmallScreen
-              ? EdgeInsets.symmetric(horizontal: 30, vertical: 20)
-              : EdgeInsets.symmetric(horizontal: 30, vertical: 25),
+              ? EdgeInsets.symmetric(horizontal: 30.w, vertical: 20.h)
+              : EdgeInsets.symmetric(horizontal: 30.w, vertical: 25.h),
           textStyle: TextStyle(fontSize: fontSize),
         ),
       ),
@@ -59,28 +59,3 @@ class WideButton extends StatelessWidget {
 
 
 
-
-
-//  Container(
-//                                 width: double.infinity,
-//                                 child: ElevatedButton(
-//                                   onPressed: () {
-//                                    
-//                                   },
-//                                   child: const Text("NEXT"),
-//                                   style: ElevatedButton.styleFrom(
-//                                     backgroundColor: AppColors.primary,
-//                                     shape: RoundedRectangleBorder(
-//                                       borderRadius: BorderRadius.circular(8),
-//                                     ),
-//                                     elevation: 0,
-//                                     padding: (width <= 550)
-//                                         ? const EdgeInsets.symmetric(
-//                                             horizontal: 30, vertical: 20)
-//                                         : const EdgeInsets.symmetric(
-//                                             horizontal: 30, vertical: 25),
-//                                     textStyle: TextStyle(
-//                                         fontSize: (width <= 550) ? 13 : 17),
-//                                   ),
-//                                 ),
-//                               ),
