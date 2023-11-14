@@ -1,5 +1,6 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hoardr/theme/border_radius.dart';
+import 'package:hoardr/theme/font_weight.dart';
 
 import 'colors.dart';
 import 'package:flutter/material.dart';
@@ -51,12 +52,14 @@ abstract class AppTheme {
       color:  AppColors.lightDark,
     ),
     bodyLarge: TextStyle(
-      fontSize: 16.sp,
+      fontSize: 18.sp,
       fontWeight: FontWeight.bold,
       color: AppColors.textColor1,
     ),
     bodyMedium: TextStyle(
-      color: AppColors.textColor2,
+          fontSize: 16.sp,
+          fontWeight: AppFontWeight.regular,
+          color: AppColors.textColor1,
     ),
     labelLarge: TextStyle(
       fontSize: 14.sp,

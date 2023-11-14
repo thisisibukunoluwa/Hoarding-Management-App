@@ -82,94 +82,48 @@ class __AddItemPage1State extends State<_AddItemPage1> {
     super.dispose();
   }
 
-@override
+  @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding:EdgeInsets.symmetric(horizontal: 19.7.w, vertical: 1.7.h),
+        padding: EdgeInsets.symmetric(horizontal: 19.7.w, vertical: 1.7.h),
         child: Form(
           key: _formKey,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-             SizedBox(
-                height:20.h,
-            ),
-            RichText(
-              text: TextSpan(
-                style: DefaultTextStyle.of(context).style,
-                children: [
-                const TextSpan(
-                    text: 'Make your items visible. 1 / ',
-                    style: TextStyle(
-                      fontWeight: AppFontWeight.bold,
-                      color: AppColors.textColor1
-                    ),
-                  ),
-                  const TextSpan(
-                    text: '2',
-                    style: TextStyle(
-                      fontWeight: AppFontWeight.bold,
-                    ),
-                  ),
-                ],
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: 20.h,
               ),
-            ),
-             SizedBox(
+              RichText(
+                text: TextSpan(
+                  style: DefaultTextStyle.of(context).style,
+                  children: [
+                    const TextSpan(
+                      text: 'Make your items visible. 1 / ',
+                      style: TextStyle(
+                          fontWeight: AppFontWeight.bold,
+                          color: AppColors.textColor1),
+                    ),
+                    const TextSpan(
+                      text: '2',
+                      style: TextStyle(
+                        fontWeight: AppFontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
                 height: 35.h,
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  "Category*",
-                ),
-                SizedBox(
-                  height: 10.h,
-                ),
-                DropDownTextField( 
-                    controller: _cnt,
-                    clearOption: true,
-                    searchDecoration: const InputDecoration(
-                        hintText: "choose the category of the item you want to add"),
-                    validator: (value) {
-                      if (value == null) {
-                        return "This field is required";
-                      } else {
-                        return null;
-                      }
-                    },
-                    dropDownItemCount: 6,
-                    dropDownList: const [
-                      DropDownValueModel(name: 'name1', value: "value1"),
-                      DropDownValueModel(
-                          name: 'name2',
-                          value: "value2",
-                          toolTipMsg:
-                              "DropDownButton is a widget that we can use to select one unique value from a set of values"),
-                      DropDownValueModel(name: 'name3', value: "value3"),
-                      DropDownValueModel(
-                          name: 'name4',
-                          value: "value4",
-                          toolTipMsg:
-                              "DropDownButton is a widget that we can use to select one unique value from a set of values"),
-                      DropDownValueModel(name: 'name5', value: "value5"),
-                      DropDownValueModel(name: 'name6', value: "value6"),
-                      DropDownValueModel(name: 'name7', value: "value7"),
-                      DropDownValueModel(name: 'name8', value: "value8"),
-                    ],
-                    onChanged: (val) {},
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    "Category*",
                   ),
-              ],
-            ),
-            SizedBox(
-              height:30.h,
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text("Location*"),
                   SizedBox(
                     height: 10.h,
                   ),
@@ -207,55 +161,101 @@ class __AddItemPage1State extends State<_AddItemPage1> {
                     ],
                     onChanged: (val) {},
                   ),
-              ],
-            ),
-            SizedBox(
-              height: 30.h,
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                CustomTextField(
-                  label: "Title*",
-                )
-              ],
-            ),
-               SizedBox(
+                ],
+              ),
+              SizedBox(
                 height: 30.h,
               ),
-             Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text("Description*"),
-                     SizedBox(
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text("Location*"),
+                  SizedBox(
                     height: 10.h,
                   ),
-                Padding(
-                    padding: EdgeInsets.only(bottom: 20),
-                    child: SizedBox(
-                      width: 353.7.w,
-                      height:150,
-                      child: TextFormField(
-                        maxLines: 6,
-                        maxLength: 200, 
-                        keyboardType: TextInputType.multiline,
-                        decoration: InputDecoration(
-                          hintText: 'Describe Item',
-                           floatingLabelBehavior:FloatingLabelBehavior.never,
-                          border: OutlineInputBorder(),
+                  DropDownTextField(
+                    controller: _cnt,
+                    clearOption: true,
+                    searchDecoration: const InputDecoration(
+                        hintText:
+                            "choose the category of the item you want to add"),
+                    validator: (value) {
+                      if (value == null) {
+                        return "This field is required";
+                      } else {
+                        return null;
+                      }
+                    },
+                    dropDownItemCount: 6,
+                    dropDownList: const [
+                      DropDownValueModel(name: 'name1', value: "value1"),
+                      DropDownValueModel(
+                          name: 'name2',
+                          value: "value2",
+                          toolTipMsg:
+                              "DropDownButton is a widget that we can use to select one unique value from a set of values"),
+                      DropDownValueModel(name: 'name3', value: "value3"),
+                      DropDownValueModel(
+                          name: 'name4',
+                          value: "value4",
+                          toolTipMsg:
+                              "DropDownButton is a widget that we can use to select one unique value from a set of values"),
+                      DropDownValueModel(name: 'name5', value: "value5"),
+                      DropDownValueModel(name: 'name6', value: "value6"),
+                      DropDownValueModel(name: 'name7', value: "value7"),
+                      DropDownValueModel(name: 'name8', value: "value8"),
+                    ],
+                    onChanged: (val) {},
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 30.h,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CustomTextField(
+                    label: "Title*",
+                  )
+                ],
+              ),
+              SizedBox(
+                height: 30.h,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text("Description*"),
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  Padding(
+                      padding: const EdgeInsets.only(bottom: 20),
+                      child: SizedBox(
+                        width: 353.7.w,
+                        height: 150,
+                        child: TextFormField(
+                          maxLines: 6,
+                          maxLength: 200,
+                          keyboardType: TextInputType.multiline,
+                          decoration: const InputDecoration(
+                            hintText: 'Describe Item',
+                            floatingLabelBehavior: FloatingLabelBehavior.never,
+                            border: OutlineInputBorder(),
+                          ),
                         ),
-                      ),
-                    ))
-              ],
-            ),
-            WideButton(
+                      ))
+                ],
+              ),
+              WideButton(
                 onPressed: widget.onPressed,
                 buttonText: "CONTINUE",
                 fontSize: 13.sp,
                 isSmallScreen: false,
-            ),
-          ],
-        ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -270,64 +270,173 @@ class _AddItemPage2 extends StatefulWidget {
 }
 
 class __AddItemPage2State extends State<_AddItemPage2> {
+  bool? _isChecked1 = false;
+  bool? _isChecked2 = false;
+
   @override
   Widget build(BuildContext context) {
-      final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+    final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
     return SingleChildScrollView(
       child: Padding(
-         padding:EdgeInsets.symmetric(
-          horizontal: 19.7.w, vertical: 1.7.h,
+        padding: EdgeInsets.symmetric(
+          horizontal: 19.7.w,
+          vertical: 1.7.h,
         ),
         child: Form(
-          key: _formKey,
-          child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-               SizedBox(
+            key: _formKey,
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              SizedBox(
                 height: 20.h,
               ),
-                 RichText(
-                text: TextSpan(
-                  style: DefaultTextStyle.of(context).style,
+              const _PageHeader(),
+              SizedBox(
+                height: 35.h,
+              ),
+              const _AddImage(),
+              SizedBox(
+                height: 60.h,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const TextSpan(
-                      text: 'Make your items visible. 2 / ',
-                      style: TextStyle(
-                          fontWeight: AppFontWeight.bold,
-                          color: AppColors.textColor1),
+                    Text(
+                      "Enter Personal details",
+                      style: Theme.of(context).textTheme.bodyMedium,
                     ),
-                    const TextSpan(
-                      text: '2',
-                      style: TextStyle(
-                        fontWeight: AppFontWeight.bold,
-                      ),
-                    ),
+                    Row(
+                      children: [
+                        SizedBox(
+                          height: 20.h,
+                          width: 20.w,
+                          child: Checkbox(
+                              materialTapTargetSize:
+                                  MaterialTapTargetSize.shrinkWrap,
+                              value: _isChecked1,
+                              onChanged: (bool? value) {
+                                setState(() {
+                                  _isChecked1 = value;
+                                });
+                              }),
+                        ),
+                        SizedBox(
+                          width: 12.w,
+                        ),
+                        const Text("Keep me anonymous"),
+                        SizedBox(
+                          width: 12.w,
+                        ),
+                        SizedBox(
+                          height: 20.h,
+                          width: 20.w,
+                          child: Checkbox(
+                              materialTapTargetSize:
+                                  MaterialTapTargetSize.shrinkWrap,
+                              value: _isChecked2,
+                              onChanged: (bool? value) {
+                                setState(() {
+                                  _isChecked2 = value;
+                                });
+                              }),
+                        ),
+                        SizedBox(
+                          width: 12.w,
+                        ),
+                        const Text("Use name"),
+                      ],
+                    )
                   ],
                 ),
               ),
               SizedBox(
                 height: 35.h,
               ),
-              Column(
-                children: [
-                  Column(
-                     children: [
-                        Text(
-                          "Enter Personal Details",
-                          style: Theme.of(context).textTheme.bodyLarge,
-                        )
-                     ],
-                  ),
-                  WideButton(
-                    onPressed: (){}, 
-                    buttonText: "PREVIEW ITEM",
-                     fontSize: 13.sp 
-                    )
-                ],
-              )
-          ])
-        ),
+              WideButton(
+                  onPressed: () {}, buttonText: "PREVIEW ITEM", fontSize: 13.sp)
+            ])),
       ),
+    );
+  }
+}
+
+class _PageHeader extends StatelessWidget {
+  const _PageHeader({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return RichText(
+      text: TextSpan(
+        style: DefaultTextStyle.of(context).style,
+        children: [
+          const TextSpan(
+            text: 'Make your items visible. 2 / ',
+            style: TextStyle(
+                fontWeight: AppFontWeight.bold, color: AppColors.textColor1),
+          ),
+          const TextSpan(
+            text: '2',
+            style: TextStyle(
+              fontWeight: AppFontWeight.bold,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _AddImage extends StatelessWidget {
+  const _AddImage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          "Add Image",
+          style: TextStyle(fontSize: 20.sp, color: AppColors.textColor1),
+        ),
+        const Text("Add at least one Image, but not more than 5 images"),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+          InkWell(
+            onTap: () {
+              print('Button clicked');
+            },
+            child: Container(
+              width: 65.w,
+              height: 65.h,
+              decoration: const BoxDecoration(
+                color: AppColors.goldYellow,
+                shape: BoxShape.circle,
+              ),
+              child: const Center(
+                child: Icon(
+                  Icons.add, // This is the cross icon
+                  color: Colors.white,
+                  size: 30.0,
+                ),
+              ),
+            ),
+          ),
+           ...List.generate(
+            4,
+            (index) => Container(
+      width: 65.w,
+      height:  65.h,
+      decoration: BoxDecoration(
+        border: Border.all(color: AppColors.borderEnabled, width: 1), 
+        borderRadius: BorderRadius.circular(5.0), 
+        color: Colors.transparent, 
+      ),
+    ),
+          ),
+        ]),
+        const Text("Max image size is 5 Mb"),
+        const Text("Supported format are *jpg and *png"),
+      ],
     );
   }
 }
