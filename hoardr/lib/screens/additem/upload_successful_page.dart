@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hoardr/gen/assets.gen.dart';
 import 'package:hoardr/widgets/wide_button.dart';
 
@@ -22,7 +23,7 @@ class UploadSuccessfulPage extends StatelessWidget {
                 ],
               ),
             ),
-            WideButton(onPressed: () {}, buttonText:"CONTINUE")
+            WideButton(onPressed: () {}, buttonText:"CONTINUE", fontSize: 13.sp,)
           ],
         ),
         ),

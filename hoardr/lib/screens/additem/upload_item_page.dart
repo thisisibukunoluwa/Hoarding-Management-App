@@ -3,6 +3,7 @@
 import 'package:dropdown_textfield/dropdown_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hoardr/models/product_model.dart';
 import 'package:hoardr/theme/colors.dart';
 import 'package:hoardr/theme/font_weight.dart';
@@ -289,11 +290,24 @@ class __AddItemPage2State extends State<_AddItemPage2> {
               SizedBox(
                 height: 20.h,
               ),
-              const _PageHeader(),
+              const PageHeader(),
               SizedBox(
                 height: 35.h,
               ),
-              const _AddImage(),
+              const AddImage(),
+              SizedBox(height: 30.h),
+              const ListItemChoice(),
+              SizedBox(height: 30.h),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CustomTextField(
+                    label: "Price*",
+                    hintText: "Enter Price",
+                  )
+                ],
+              ),
+              SizedBox(height: 30.h),
               SizedBox(
                 height: 60.h,
                 child: Column(
@@ -352,15 +366,19 @@ class __AddItemPage2State extends State<_AddItemPage2> {
                 height: 35.h,
               ),
               WideButton(
-                  onPressed: () {}, buttonText: "PREVIEW ITEM", fontSize: 13.sp)
+                  onPressed: () {
+                    context.go('/preview');
+                  },
+                  buttonText: "PREVIEW ITEM",
+                  fontSize: 13.sp)
             ])),
       ),
     );
   }
 }
 
-class _PageHeader extends StatelessWidget {
-  const _PageHeader({super.key});
+class PageHeader extends StatelessWidget {
+  const PageHeader({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -385,58 +403,166 @@ class _PageHeader extends StatelessWidget {
   }
 }
 
-class _AddImage extends StatelessWidget {
-  const _AddImage({super.key});
+class AddImage extends StatelessWidget {
+  const AddImage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          "Add Image",
-          style: TextStyle(fontSize: 20.sp, color: AppColors.textColor1),
-        ),
-        const Text("Add at least one Image, but not more than 5 images"),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-          InkWell(
-            onTap: () {
-              print('Button clicked');
-            },
-            child: Container(
-              width: 65.w,
-              height: 65.h,
-              decoration: const BoxDecoration(
-                color: AppColors.goldYellow,
-                shape: BoxShape.circle,
-              ),
-              child: const Center(
-                child: Icon(
-                  Icons.add, // This is the cross icon
-                  color: Colors.white,
-                  size: 30.0,
+    return SizedBox(
+      height: 180.h,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Add Image*",
+            style: Theme.of(context).textTheme.bodyMedium,
+          ),
+          Text(
+            "Add at least one Image, but not more than 5 images",
+            style: TextStyle(
+                fontSize: 13.5.sp,
+                fontWeight: AppFontWeight.regular,
+                color: AppColors.textColor2),
+          ),
+          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+            InkWell(
+              onTap: () {
+                print('Button clicked');
+              },
+              child: Container(
+                width: 65.w,
+                height: 65.h,
+                decoration: const BoxDecoration(
+                  color: AppColors.goldYellow,
+                  shape: BoxShape.circle,
+                ),
+                child: const Center(
+                  child: Icon(
+                    Icons.add, // This is the cross icon
+                    color: Colors.white,
+                    size: 30.0,
+                  ),
                 ),
               ),
             ),
+            ...List.generate(
+              4,
+              (index) => Container(
+                width: 65.w,
+                height: 65.h,
+                decoration: BoxDecoration(
+                  border: Border.all(color: AppColors.borderEnabled, width: 1),
+                  borderRadius: BorderRadius.circular(5.0),
+                  color: Colors.transparent,
+                ),
+              ),
+            ),
+          ]),
+          Text(
+            "Max image size is 5 Mb",
+            style: TextStyle(
+                fontSize: 13.5.sp,
+                fontWeight: AppFontWeight.regular,
+                color: AppColors.textColor2),
           ),
-           ...List.generate(
-            4,
-            (index) => Container(
-      width: 65.w,
-      height:  65.h,
-      decoration: BoxDecoration(
-        border: Border.all(color: AppColors.borderEnabled, width: 1), 
-        borderRadius: BorderRadius.circular(5.0), 
-        color: Colors.transparent, 
+          Text(
+            "Supported format are *jpg and *png",
+            style: TextStyle(
+                fontSize: 13.5.sp,
+                fontWeight: AppFontWeight.regular,
+                color: AppColors.textColor2),
+          ),
+        ],
       ),
-    ),
+    );
+  }
+}
+
+class ListItemChoice extends StatefulWidget {
+  const ListItemChoice({super.key});
+
+  @override
+  State<ListItemChoice> createState() => _ListItemChoiceState();
+}
+
+class _ListItemChoiceState extends State<ListItemChoice> {
+  bool? _isChecked1 = false;
+  bool? _isChecked2 = false;
+  bool? _isChecked3 = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 60.h,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "How would you like to list this item?*",
+            style: Theme.of(context).textTheme.bodyMedium,
           ),
-        ]),
-        const Text("Max image size is 5 Mb"),
-        const Text("Supported format are *jpg and *png"),
-      ],
+          Row(
+            children: [
+              SizedBox(
+                height: 20.h,
+                width: 20.w,
+                child: Checkbox(
+                    materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    value: _isChecked1,
+                    onChanged: (bool? value) {
+                      setState(() {
+                        _isChecked1 = value;
+                      });
+                    }),
+              ),
+              SizedBox(
+                width: 12.w,
+              ),
+              const Text("For sale"),
+              SizedBox(
+                width: 12.w,
+              ),
+              SizedBox(
+                height: 20.h,
+                width: 20.w,
+                child: Checkbox(
+                    materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    value: _isChecked2,
+                    onChanged: (bool? value) {
+                      setState(() {
+                        _isChecked2 = value;
+                      });
+                    }),
+              ),
+              SizedBox(
+                width: 12.w,
+              ),
+              const Text("For exchange"),
+              SizedBox(
+                width: 12.w,
+              ),
+              SizedBox(
+                height: 20.h,
+                width: 20.w,
+                child: Checkbox(
+                    materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    value: _isChecked3,
+                    onChanged: (bool? value) {
+                      setState(() {
+                        _isChecked3 = value;
+                      });
+                    }),
+              ),
+              SizedBox(
+                width: 12.w,
+              ),
+              const Text("For free"),
+            ],
+          )
+        ],
+      ),
     );
   }
 }
